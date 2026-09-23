@@ -40,9 +40,9 @@ export interface SkillCategory {
 }
 
 export const PERSONAL_INFO = {
-  name: 'Sankalp S Patil',
-  firstName: 'SANKALP',
-  lastName: 'PATIL',
+  name: 'Mohd Ubes',
+  firstName: 'MOHD',
+  lastName: 'UBES',
   role: 'Computer Science Engineer',
   positioning: 'Computer Science Engineer | AI/ML & Full-Stack Developer',
   location: 'Bengaluru, India',

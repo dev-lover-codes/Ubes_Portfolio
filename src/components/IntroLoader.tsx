@@ -496,7 +496,7 @@ export const IntroLoader: React.FC<IntroLoaderProps> = ({ isOpen, onClose }) => 
         <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-sm shadow-sm">
           <img
             src="/images/sankalp-3d-avatar.png"
-            alt="Sankalp Thumbnail"
+            alt={`${PERSONAL_INFO.name} Thumbnail`}
             className="w-5 h-5 rounded-full object-cover object-top border border-white/20"
           />
           <span className="text-xs font-mono font-medium text-[#f4f3ef] tracking-normal">{PERSONAL_INFO.name}</span>
@@ -586,7 +586,7 @@ export const IntroLoader: React.FC<IntroLoaderProps> = ({ isOpen, onClose }) => 
             {/* Volumetric 3D Character Cutout with Real-Time Light-Casting Shadow */}
             <img
               src="/images/sankalp-3d-avatar.png"
-              alt="Sankalp 3D Avatar"
+              alt={`${PERSONAL_INFO.name} 3D Avatar`}
               className="w-full h-full object-contain pointer-events-none select-none transition-all duration-150"
               style={{
                 filter: `drop-shadow(${-headTransform.transX * 1.4}px ${25 - headTransform.transY * 1.2}px 35px rgba(0,0,0,0.92)) drop-shadow(0 0 35px rgba(230,92,36,${isHovered ? 0.45 : 0.2}))`,
