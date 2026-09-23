@@ -81,9 +81,13 @@ The portfolio is structured around a centralized data file (`src/data/portfolioD
 ---
 
 ## 5. Vercel Deployment
-- Goals:
-  1. Install Vercel CLI (`npm i -g vercel` / `npx vercel`).
-  2. Authenticate / Login to Vercel account.
-  3. Deploy the project using `vercel` / `vercel --prod`.
+- Goals & Actions Completed:
+  1. Installed Vercel CLI (`59.25.4`) globally via `npm i -g vercel`.
+  2. Authenticated with Vercel account (`raajmalhotra143` / `its-raaj`).
+  3. Deployed project to Vercel production using `vercel --prod --yes`.
+- Production URL: `https://ubes-portfolio.vercel.app`
+- Preview / Specific Deployment: `https://ubes-portfolio-814h1kpmw-its-raaj.vercel.app`
+- Live Status: Verified HTTP/2 200 OK.
+
 
 
