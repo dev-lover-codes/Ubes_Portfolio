@@ -168,6 +168,11 @@ export const Hero: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center overflow-visible">
           {/* Left Column: Interactive Typographic Name & Core Identity */}
           <div ref={nameWrapperRef} className="lg:col-span-7 xl:col-span-8 flex flex-col overflow-visible">
+            {/* Welcoming Greeting Eyebrow */}
+            <div className="mb-2 sm:mb-3 flex items-center gap-2 text-xs sm:text-sm font-mono text-[#e65c24] tracking-widest uppercase">
+              <span className="inline-block w-2 h-2 rounded-full bg-[#e65c24] animate-pulse" />
+              <span>HELLO, I'M</span>
+            </div>
             <div className="overflow-visible flex flex-wrap items-baseline gap-x-4 md:gap-x-8 gap-y-2">
               <h1
                 className="font-display font-extrabold tracking-tight leading-[0.95] text-[#f4f3ef] uppercase overflow-visible flex flex-wrap items-baseline gap-x-4 md:gap-x-8 gap-y-2"

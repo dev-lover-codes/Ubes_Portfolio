@@ -14,10 +14,20 @@ interface IntroLoaderProps {
 }
 
 const INTERACTIVE_QUOTES = [
+  `Hello! I'm ${PERSONAL_INFO.name} 👋`,
   `Hey, I'm ${PERSONAL_INFO.firstName}! 👋`,
   "Welcome to my portfolio website ✨",
-  "Scroll down to explore my work 🚀",
+  "Scroll down or tap below to explore my work 🚀",
   "Let's build something extraordinary ✨",
+]
+
+const GREETING_WORDS = [
+  { greeting: "HELLO", label: "ENGLISH" },
+  { greeting: "NAMASTE", label: "HINDI" },
+  { greeting: "BONJOUR", label: "FRENCH" },
+  { greeting: "HOLA", label: "SPANISH" },
+  { greeting: "CIAO", label: "ITALIAN" },
+  { greeting: "WELCOME", label: "EXPLORE" },
 ]
 
 export const IntroLoader: React.FC<IntroLoaderProps> = ({ isOpen, onClose }) => {
@@ -32,6 +42,7 @@ export const IntroLoader: React.FC<IntroLoaderProps> = ({ isOpen, onClose }) => 
   const [isHovered, setIsHovered] = useState(false)
   const [activeSpeech, setActiveSpeech] = useState<string | null>(null)
   const [speechIndex, setSpeechIndex] = useState(0)
+  const [greetingIndex, setGreetingIndex] = useState(0)
   const [scrollPull, setScrollPull] = useState(0)
 
   // Head tracking transform state
@@ -101,14 +112,14 @@ export const IntroLoader: React.FC<IntroLoaderProps> = ({ isOpen, onClose }) => 
     }
   }, [soundEnabled])
 
-  const isFirstRender = useRef(true)
+  const isFirstTransition = useRef(true)
 
   // Handle open/close transitions dynamically
   useEffect(() => {
     const lenis = (window as unknown as { __lenis?: { stop: () => void; start: () => void; scrollTo: (target: number, opts?: { immediate?: boolean }) => void } }).__lenis
 
-    if (isFirstRender.current) {
-      isFirstRender.current = false
+    if (isFirstTransition.current) {
+      isFirstTransition.current = false
       return
     }
 
@@ -255,6 +266,35 @@ export const IntroLoader: React.FC<IntroLoaderProps> = ({ isOpen, onClose }) => 
     }
   }, [isHovered])
 
+  const hasAnimatedEntrance = useRef(false)
+
+  // Automatically cycle greeting words every 2 seconds while intro is open
+  useEffect(() => {
+    if (!isOpen) return
+    const interval = setInterval(() => {
+      setGreetingIndex((prev) => (prev + 1) % GREETING_WORDS.length)
+    }, 2000)
+    return () => clearInterval(interval)
+  }, [isOpen])
+
+  // Automatically greet the visitor with "Hello! I'm Mohd Ubes 👋" on initial landing
+  useEffect(() => {
+    if (!isOpen) return
+    const greetTimer = setTimeout(() => {
+      setActiveSpeech(`Hello! I'm ${PERSONAL_INFO.name} 👋`)
+      playSfx('ping')
+    }, 450)
+
+    const followUpTimer = setTimeout(() => {
+      setActiveSpeech("Welcome to my portfolio website ✨")
+    }, 3800)
+
+    return () => {
+      clearTimeout(greetTimer)
+      clearTimeout(followUpTimer)
+    }
+  }, [isOpen, playSfx])
+
   // Lifecycle & Global Scroll Interception (only active while intro is visible)
   useEffect(() => {
     // Disable browser automatic scroll restoration
@@ -262,12 +302,6 @@ export const IntroLoader: React.FC<IntroLoaderProps> = ({ isOpen, onClose }) => 
       history.scrollRestoration = 'manual'
     }
     window.scrollTo(0, 0)
-
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (prefersReducedMotion) {
-      onClose()
-      return
-    }
 
     if (!isOpen) return
 
@@ -279,25 +313,30 @@ export const IntroLoader: React.FC<IntroLoaderProps> = ({ isOpen, onClose }) => 
     }
 
     // Entrance timeline on initial load
-    const tl = gsap.timeline()
-    if (isFirstRender.current) {
-      tl.fromTo(
-        textGroupRef.current,
-        { scale: 0.9, opacity: 0, y: 30 },
-        { scale: 1, opacity: 1, duration: 0.8, ease: 'power3.out' }
-      )
-      tl.fromTo(
-        headRef.current,
-        { scale: 0.7, opacity: 0, y: 40 },
-        { scale: 1, opacity: 1, duration: 0.9, ease: 'back.out(1.4)' },
-        '-=0.5'
-      )
-      tl.fromTo(
-        bottomBarRef.current,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' },
-        '-=0.3'
-      )
+    let tl: gsap.core.Timeline | null = null
+    if (!hasAnimatedEntrance.current && containerRef.current) {
+      hasAnimatedEntrance.current = true
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      if (!prefersReducedMotion) {
+        tl = gsap.timeline()
+        tl.fromTo(
+          textGroupRef.current,
+          { scale: 0.88, opacity: 0, y: 35 },
+          { scale: 1, opacity: 1, duration: 0.85, ease: 'power3.out' }
+        )
+        tl.fromTo(
+          headRef.current,
+          { scale: 0.65, opacity: 0, y: 45 },
+          { scale: 1, opacity: 1, duration: 0.95, ease: 'back.out(1.4)' },
+          '-=0.55'
+        )
+        tl.fromTo(
+          bottomBarRef.current,
+          { opacity: 0, y: 25 },
+          { opacity: 1, y: 0, duration: 0.65, ease: 'power2.out' },
+          '-=0.35'
+        )
+      }
     }
 
     // Global scroll & wheel event interception while intro is open
@@ -391,7 +430,7 @@ export const IntroLoader: React.FC<IntroLoaderProps> = ({ isOpen, onClose }) => 
     window.addEventListener('keydown', handleKeyDown)
 
     return () => {
-      tl.kill()
+      tl?.kill()
       clearTimeout(decayTimer)
       window.removeEventListener('wheel', handleWheel)
       window.removeEventListener('touchstart', handleTouchStart)
@@ -529,13 +568,17 @@ export const IntroLoader: React.FC<IntroLoaderProps> = ({ isOpen, onClose }) => 
 
       {/* Center Stage: Calibrated "WELCOME LET'S EXPLORE" Typography + Volumetric 3D Head */}
       <div className="relative flex flex-col items-center justify-center my-auto w-full max-w-7xl mx-auto py-8 sm:py-12 select-none z-10">
-        {/* Background Massive Editorial Typography (Properly Fitted across all Viewports) */}
+        {/* Background Massive Editorial Typography (Cycles HELLO / NAMASTE / BONJOUR / HOLA / CIAO / WELCOME) */}
         <div
           ref={textGroupRef}
           className="relative flex flex-col items-center justify-center text-center select-none pointer-events-none w-full leading-[0.88] px-4"
         >
-          <h1 className="font-display font-black text-[clamp(1.75rem,10.5vw,6rem)] tracking-tight text-[#f4f3ef] drop-shadow-sm select-none break-words">
-            WELCOME
+          <div className="flex items-center gap-2 mb-2 font-mono text-[11px] sm:text-xs text-[#e65c24] tracking-[0.3em] uppercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#e65c24] animate-ping" />
+            <span>SAY HELLO · {GREETING_WORDS[greetingIndex].label}</span>
+          </div>
+          <h1 className="font-display font-black text-[clamp(2.4rem,12vw,6.5rem)] tracking-tight text-[#f4f3ef] drop-shadow-sm select-none break-words transition-all duration-300">
+            {GREETING_WORDS[greetingIndex].greeting}
           </h1>
           <h2 className="font-display font-black text-[clamp(1.35rem,8vw,4.5rem)] tracking-tight text-[#e65c24] select-none -mt-1 sm:-mt-2 md:-mt-3 break-words">
             LET'S EXPLORE
@@ -554,15 +597,15 @@ export const IntroLoader: React.FC<IntroLoaderProps> = ({ isOpen, onClose }) => 
           onMouseLeave={() => setIsHovered(false)}
           data-cursor="TAP ME"
         >
-          {/* Reactive Speech Bubble (appears on click/tap) */}
+          {/* Reactive Speech Bubble (appears on load & click/tap) */}
           {activeSpeech && (
             <div
-              className="absolute -top-14 sm:-top-16 z-30 px-3 sm:px-4 py-1.5 sm:py-2 rounded-2xl bg-[#18191c]/95 border border-[#e65c24]/50 shadow-2xl backdrop-blur-md text-xs sm:text-sm font-mono text-[#f4f3ef] text-center max-w-[260px] sm:max-w-none break-words animate-bounce pointer-events-none"
-              style={{ animationDuration: '2s' }}
+              className="absolute -top-16 sm:-top-20 z-30 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-2xl bg-[#18191c]/95 border border-[#e65c24]/60 shadow-[0_10px_25px_rgba(230,92,36,0.25)] backdrop-blur-md text-xs sm:text-sm font-mono text-[#f4f3ef] text-center max-w-[280px] sm:max-w-none break-words pointer-events-none transition-all duration-300 transform animate-bounce"
+              style={{ animationDuration: '2.5s' }}
             >
-              <span>{activeSpeech}</span>
+              <span className="font-medium">{activeSpeech}</span>
               {/* Speech bubble tail pointing to head */}
-              <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#18191c] border-r border-b border-[#e65c24]/50 rotate-45" />
+              <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 bg-[#18191c] border-r border-b border-[#e65c24]/60 rotate-45" />
             </div>
           )}
 
