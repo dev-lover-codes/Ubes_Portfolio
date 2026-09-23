@@ -112,6 +112,53 @@ export const IntroLoader: React.FC<IntroLoaderProps> = ({ isOpen, onClose }) => 
     }
   }, [soundEnabled])
 
+  // Real Spoken Human Voice Synthesis using Web Speech API
+  const speakVoice = useCallback(
+    (text: string) => {
+      if (!soundEnabled) return
+      if (typeof window === 'undefined' || !('speechSynthesis' in window)) return
+
+      try {
+        window.speechSynthesis.cancel()
+
+        // Clean emojis, punctuation artifacts, and slashes for natural human speech
+        const cleanText = text
+          .replace(/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{1F700}-\u{1F77F}\u{1F780}-\u{1F7FF}\u{1F800}-\u{1F8FF}\u{1F900}-\u{1F9FF}\u{1FA00}-\u{1FA6F}\u{1FA70}-\u{1FAFF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/gu, '')
+          .replace(/\/\//g, '')
+          .trim()
+
+        if (!cleanText) return
+
+        const utterance = new SpeechSynthesisUtterance(cleanText)
+        utterance.rate = 1.0
+        utterance.pitch = 1.05
+        utterance.volume = 1.0
+
+        // Find a natural English voice if available
+        const voices = window.speechSynthesis.getVoices()
+        const preferredVoice =
+          voices.find(
+            (v) =>
+              v.lang.startsWith('en') &&
+              (v.name.includes('Natural') ||
+                v.name.includes('Google') ||
+                v.name.includes('Samantha') ||
+                v.name.includes('Daniel') ||
+                v.name.includes('David'))
+          ) || voices.find((v) => v.lang.startsWith('en'))
+
+        if (preferredVoice) {
+          utterance.voice = preferredVoice
+        }
+
+        window.speechSynthesis.speak(utterance)
+      } catch (err) {
+        console.warn('Speech synthesis error:', err)
+      }
+    },
+    [soundEnabled]
+  )
+
   const isFirstTransition = useRef(true)
 
   // Handle open/close transitions dynamically
@@ -283,17 +330,45 @@ export const IntroLoader: React.FC<IntroLoaderProps> = ({ isOpen, onClose }) => 
     const greetTimer = setTimeout(() => {
       setActiveSpeech(`Hello! I'm ${PERSONAL_INFO.name} 👋`)
       playSfx('ping')
-    }, 450)
+      speakVoice(`Hello! I'm ${PERSONAL_INFO.name}. Welcome to my portfolio website.`)
+    }, 500)
 
     const followUpTimer = setTimeout(() => {
       setActiveSpeech("Welcome to my portfolio website ✨")
-    }, 3800)
+    }, 4500)
 
     return () => {
       clearTimeout(greetTimer)
       clearTimeout(followUpTimer)
     }
-  }, [isOpen, playSfx])
+  }, [isOpen, playSfx, speakVoice])
+
+  // Unlock audio & voice on first user interaction if blocked by browser autoplay policy
+  useEffect(() => {
+    if (!isOpen) return
+    let hasPlayed = false
+
+    const handleFirstUserGesture = () => {
+      if (!hasPlayed && isOpen) {
+        hasPlayed = true
+        playSfx('ping')
+        speakVoice(`Hello! I'm ${PERSONAL_INFO.name}. Welcome to my portfolio website.`)
+      }
+      window.removeEventListener('pointerdown', handleFirstUserGesture)
+      window.removeEventListener('keydown', handleFirstUserGesture)
+      window.removeEventListener('touchstart', handleFirstUserGesture)
+    }
+
+    window.addEventListener('pointerdown', handleFirstUserGesture)
+    window.addEventListener('keydown', handleFirstUserGesture)
+    window.addEventListener('touchstart', handleFirstUserGesture)
+
+    return () => {
+      window.removeEventListener('pointerdown', handleFirstUserGesture)
+      window.removeEventListener('keydown', handleFirstUserGesture)
+      window.removeEventListener('touchstart', handleFirstUserGesture)
+    }
+  }, [isOpen, playSfx, speakVoice])
 
   // Lifecycle & Global Scroll Interception (only active while intro is visible)
   useEffect(() => {
@@ -451,7 +526,9 @@ export const IntroLoader: React.FC<IntroLoaderProps> = ({ isOpen, onClose }) => 
     if (now - lastInteractTime.current < 250) return
     lastInteractTime.current = now
 
+    const nextPhrase = INTERACTIVE_QUOTES[speechIndex % INTERACTIVE_QUOTES.length]
     playSfx('click')
+    speakVoice(nextPhrase)
 
     // Trigger bounce physics
     clickBounce.current = 1.25
@@ -464,16 +541,15 @@ export const IntroLoader: React.FC<IntroLoaderProps> = ({ isOpen, onClose }) => 
     }, 1200)
 
     // Show speech bubble with authentic rotating quotes
-    const nextPhrase = INTERACTIVE_QUOTES[speechIndex % INTERACTIVE_QUOTES.length]
     setActiveSpeech(nextPhrase)
     setSpeechIndex((prev) => prev + 1)
 
-    // Hide speech bubble after 3.2s
+    // Hide speech bubble after 4s
     if (speechTimerRef.current) clearTimeout(speechTimerRef.current)
     speechTimerRef.current = setTimeout(() => {
       setActiveSpeech((curr) => (curr === nextPhrase ? null : curr))
-    }, 3200)
-  }, [playSfx, speechIndex])
+    }, 4000)
+  }, [playSfx, speakVoice, speechIndex])
 
   const handleHeadTouchStart = (e: React.TouchEvent) => {
     if (e.touches && e.touches.length > 0) {
@@ -512,13 +588,13 @@ export const IntroLoader: React.FC<IntroLoaderProps> = ({ isOpen, onClose }) => 
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-50 flex flex-col justify-between bg-[#0c0d0e] p-4 sm:p-10 md:p-14 select-none border-b border-[#f4f3ef]/10 overflow-hidden"
+      className="fixed inset-0 z-50 flex flex-col justify-between bg-[#06080f] p-4 sm:p-10 md:p-14 select-none border-b border-[#f1f5f9]/10 overflow-hidden"
       aria-hidden="true"
     >
       {/* Background Architectural Grid Lines */}
       {/* Subtle Background Radial Atmosphere */}
       <div className="absolute inset-0 pointer-events-none flex items-center justify-center overflow-hidden">
-        <div className="w-[600px] h-[600px] sm:w-[800px] sm:h-[800px] rounded-full bg-[#e65c24]/[0.07] blur-[120px] pointer-events-none" />
+        <div className="w-[600px] h-[600px] sm:w-[800px] sm:h-[800px] rounded-full bg-[#00f0ff]/[0.07] blur-[120px] pointer-events-none" />
       </div>
 
       {/* Background Architectural Grid Lines */}
@@ -530,7 +606,7 @@ export const IntroLoader: React.FC<IntroLoaderProps> = ({ isOpen, onClose }) => 
       </div>
 
       {/* Top Editorial Telemetry Bar */}
-      <div className="flex justify-between items-center text-xs font-mono text-[#9da0a8] tracking-widest uppercase z-20">
+      <div className="flex justify-between items-center text-xs font-mono text-[#94a3b8] tracking-widest uppercase z-20">
         {/* Profile Pill Badge */}
         <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-sm shadow-sm">
           <img
@@ -538,7 +614,7 @@ export const IntroLoader: React.FC<IntroLoaderProps> = ({ isOpen, onClose }) => 
             alt={`${PERSONAL_INFO.name} Thumbnail`}
             className="w-5 h-5 rounded-full object-cover object-top border border-white/20"
           />
-          <span className="text-xs font-mono font-medium text-[#f4f3ef] tracking-normal">{PERSONAL_INFO.name}</span>
+          <span className="text-xs font-mono font-medium text-[#f1f5f9] tracking-normal">{PERSONAL_INFO.name}</span>
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse ml-0.5" />
         </div>
 
@@ -549,18 +625,25 @@ export const IntroLoader: React.FC<IntroLoaderProps> = ({ isOpen, onClose }) => 
             onClick={() => {
               const next = !soundEnabled
               setSoundEnabled(next)
-              if (next) playSfx('ping')
+              if (next) {
+                playSfx('ping')
+                speakVoice("Voice and audio active")
+              } else {
+                if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+                  window.speechSynthesis.cancel()
+                }
+              }
             }}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-[11px] font-mono transition-colors text-[#9da0a8] hover:text-[#f4f3ef] cursor-pointer"
-            title="Toggle interactive audio feedback"
-            aria-label="Toggle interactive audio feedback"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-[11px] font-mono transition-colors text-[#94a3b8] hover:text-[#f1f5f9] cursor-pointer"
+            title="Toggle interactive audio feedback and speech"
+            aria-label="Toggle interactive audio feedback and speech"
             data-cursor="AUDIO"
           >
-            {soundEnabled ? <Volume2 className="w-3.5 h-3.5 text-[#e65c24]" /> : <VolumeX className="w-3.5 h-3.5 text-[#5e6068]" />}
-            <span className="hidden sm:inline">{soundEnabled ? 'SFX ON' : 'SFX MUTED'}</span>
+            {soundEnabled ? <Volume2 className="w-3.5 h-3.5 text-[#00f0ff]" /> : <VolumeX className="w-3.5 h-3.5 text-[#64748b]" />}
+            <span className="hidden sm:inline">{soundEnabled ? 'VOICE & SFX ON' : 'MUTED'}</span>
           </button>
 
-          <span className="hidden sm:inline-block px-3 py-1.5 rounded-full bg-white/[0.02] border border-white/[0.06] text-[11px] font-mono text-[#5e6068]">
+          <span className="hidden sm:inline-block px-3 py-1.5 rounded-full bg-white/[0.02] border border-white/[0.06] text-[11px] font-mono text-[#64748b]">
             DSU // BENGALURU
           </span>
         </div>
@@ -573,14 +656,14 @@ export const IntroLoader: React.FC<IntroLoaderProps> = ({ isOpen, onClose }) => 
           ref={textGroupRef}
           className="relative flex flex-col items-center justify-center text-center select-none pointer-events-none w-full leading-[0.88] px-4"
         >
-          <div className="flex items-center gap-2 mb-2 font-mono text-[11px] sm:text-xs text-[#e65c24] tracking-[0.3em] uppercase">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#e65c24] animate-ping" />
+          <div className="flex items-center gap-2 mb-2 font-mono text-[11px] sm:text-xs text-[#00f0ff] tracking-[0.3em] uppercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#00f0ff] animate-ping" />
             <span>SAY HELLO · {GREETING_WORDS[greetingIndex].label}</span>
           </div>
-          <h1 className="font-display font-black text-[clamp(2.4rem,12vw,6.5rem)] tracking-tight text-[#f4f3ef] drop-shadow-sm select-none break-words transition-all duration-300">
+          <h1 className="font-display font-black text-[clamp(2.4rem,12vw,6.5rem)] tracking-tight text-[#f1f5f9] drop-shadow-sm select-none break-words transition-all duration-300">
             {GREETING_WORDS[greetingIndex].greeting}
           </h1>
-          <h2 className="font-display font-black text-[clamp(1.35rem,8vw,4.5rem)] tracking-tight text-[#e65c24] select-none -mt-1 sm:-mt-2 md:-mt-3 break-words">
+          <h2 className="font-display font-black text-[clamp(1.35rem,8vw,4.5rem)] tracking-tight text-[#00f0ff] select-none -mt-1 sm:-mt-2 md:-mt-3 break-words">
             LET'S EXPLORE
           </h2>
         </div>
@@ -600,12 +683,12 @@ export const IntroLoader: React.FC<IntroLoaderProps> = ({ isOpen, onClose }) => 
           {/* Reactive Speech Bubble (appears on load & click/tap) */}
           {activeSpeech && (
             <div
-              className="absolute -top-16 sm:-top-20 z-30 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-2xl bg-[#18191c]/95 border border-[#e65c24]/60 shadow-[0_10px_25px_rgba(230,92,36,0.25)] backdrop-blur-md text-xs sm:text-sm font-mono text-[#f4f3ef] text-center max-w-[280px] sm:max-w-none break-words pointer-events-none transition-all duration-300 transform animate-bounce"
+              className="absolute -top-16 sm:-top-20 z-30 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-2xl bg-[#18191c]/95 border border-[#00f0ff]/60 shadow-[0_10px_25px_rgba(0,240,255,0.25)] backdrop-blur-md text-xs sm:text-sm font-mono text-[#f1f5f9] text-center max-w-[280px] sm:max-w-none break-words pointer-events-none transition-all duration-300 transform animate-bounce"
               style={{ animationDuration: '2.5s' }}
             >
               <span className="font-medium">{activeSpeech}</span>
               {/* Speech bubble tail pointing to head */}
-              <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 bg-[#18191c] border-r border-b border-[#e65c24]/60 rotate-45" />
+              <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 bg-[#18191c] border-r border-b border-[#00f0ff]/60 rotate-45" />
             </div>
           )}
 
@@ -632,7 +715,7 @@ export const IntroLoader: React.FC<IntroLoaderProps> = ({ isOpen, onClose }) => 
               alt={`${PERSONAL_INFO.name} 3D Avatar`}
               className="w-full h-full object-contain pointer-events-none select-none transition-all duration-150"
               style={{
-                filter: `drop-shadow(${-headTransform.transX * 1.4}px ${25 - headTransform.transY * 1.2}px 35px rgba(0,0,0,0.92)) drop-shadow(0 0 35px rgba(230,92,36,${isHovered ? 0.45 : 0.2}))`,
+                filter: `drop-shadow(${-headTransform.transX * 1.4}px ${25 - headTransform.transY * 1.2}px 35px rgba(0,0,0,0.92)) drop-shadow(0 0 35px rgba(0,240,255,${isHovered ? 0.45 : 0.2}))`,
               }}
               draggable={false}
             />
@@ -642,16 +725,16 @@ export const IntroLoader: React.FC<IntroLoaderProps> = ({ isOpen, onClose }) => 
               className="absolute inset-0 pointer-events-none rounded-full transition-opacity duration-200"
               style={{
                 opacity: isHovered ? 0.35 : 0.15,
-                background: `radial-gradient(circle at ${50 + headTransform.transX * 1.2}% ${40 + headTransform.transY * 1.2}%, rgba(255,255,255,0.8) 0%, rgba(230,92,36,0.3) 35%, transparent 65%)`,
+                background: `radial-gradient(circle at ${50 + headTransform.transX * 1.2}% ${40 + headTransform.transY * 1.2}%, rgba(255,255,255,0.8) 0%, rgba(0,240,255,0.3) 35%, transparent 65%)`,
                 mixBlendMode: 'overlay',
               }}
             />
           </div>
 
-          {/* Interactive Tap Affordance Pill */}
-          <div className="mt-1 px-3 py-1 rounded-full bg-[#0c0d0e]/90 border border-white/15 text-[10px] font-mono text-[#9da0a8] flex items-center gap-1.5 shadow-xl transition-colors hover:border-[#e65c24] hover:text-[#f4f3ef]">
-            <Sparkles className="w-2.5 h-2.5 text-[#e65c24]" />
-            <span>INTERACTIVE 3D AVATAR // TAP ME</span>
+          {/* Interactive Tap Affordance Pill with Voice indicator */}
+          <div className="mt-1 px-3.5 py-1 rounded-full bg-[#06080f]/90 border border-[#00f0ff]/30 text-[10px] font-mono text-[#94a3b8] flex items-center gap-1.5 shadow-xl transition-all hover:border-[#00f0ff] hover:text-[#f1f5f9] hover:shadow-[0_0_15px_rgba(0,240,255,0.3)]">
+            <Volume2 className="w-3 h-3 text-[#00f0ff] animate-pulse" />
+            <span>🔊 TAP AVATAR TO HEAR VOICE</span>
           </div>
         </div>
       </div>
@@ -659,14 +742,14 @@ export const IntroLoader: React.FC<IntroLoaderProps> = ({ isOpen, onClose }) => 
       {/* Bottom Editorial Details & Interactive Launch Action */}
       <div
         ref={bottomBarRef}
-        className="flex flex-col sm:flex-row justify-between items-center gap-6 text-xs font-mono text-[#5e6068] z-20"
+        className="flex flex-col sm:flex-row justify-between items-center gap-6 text-xs font-mono text-[#64748b] z-20"
       >
         {/* Bottom Left Statement */}
         <div className="max-w-xs sm:max-w-sm text-center sm:text-left space-y-1">
-          <p className="text-xs sm:text-sm font-medium text-[#f4f3ef] leading-snug">
+          <p className="text-xs sm:text-sm font-medium text-[#f1f5f9] leading-snug">
             Hey, glad you're here. Take a look around.
           </p>
-          <p className="text-[11px] font-mono text-[#5e6068]">
+          <p className="text-[11px] font-mono text-[#64748b]">
             {PERSONAL_INFO.name} // Portfolio
           </p>
         </div>
@@ -675,25 +758,25 @@ export const IntroLoader: React.FC<IntroLoaderProps> = ({ isOpen, onClose }) => 
         <button
           type="button"
           onClick={triggerExit}
-          className="group relative flex flex-col items-center sm:items-end gap-2 text-[#9da0a8] hover:text-[#f4f3ef] transition-colors cursor-pointer py-1 px-4"
+          className="group relative flex flex-col items-center sm:items-end gap-2 text-[#94a3b8] hover:text-[#f1f5f9] transition-colors cursor-pointer py-1 px-4"
           data-cursor="ENTER"
         >
           {/* Scroll Pull Progress Readout */}
-          <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold tracking-[0.25em] text-[#f4f3ef] uppercase">
+          <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold tracking-[0.25em] text-[#f1f5f9] uppercase">
             <span>{scrollPull > 0 ? `ENTERING [${scrollPull}%]` : 'SCROLL TO EXPLORE'}</span>
-            <ArrowDown className="w-3.5 h-3.5 text-[#e65c24] group-hover:translate-y-1 transition-transform duration-200" />
+            <ArrowDown className="w-3.5 h-3.5 text-[#00f0ff] group-hover:translate-y-1 transition-transform duration-200" />
           </div>
 
           {/* Futuristic Scroll Capsule Track */}
-          <div className="relative w-6 h-10 rounded-full border border-white/20 group-hover:border-[#e65c24] transition-colors flex justify-center p-1 overflow-hidden">
+          <div className="relative w-6 h-10 rounded-full border border-white/20 group-hover:border-[#00f0ff] transition-colors flex justify-center p-1 overflow-hidden">
             <div
-              className="absolute bottom-0 left-0 right-0 bg-[#e65c24]/35 transition-all duration-150 pointer-events-none"
+              className="absolute bottom-0 left-0 right-0 bg-[#00f0ff]/35 transition-all duration-150 pointer-events-none"
               style={{ height: `${Math.max(scrollPull, 12)}%` }}
             />
-            <div className="w-1.5 h-2.5 rounded-full bg-[#e65c24] animate-bounce z-10" />
+            <div className="w-1.5 h-2.5 rounded-full bg-[#00f0ff] animate-bounce z-10" />
           </div>
 
-          <span className="text-[10px] text-[#5e6068] tracking-widest uppercase group-hover:text-[#9da0a8] transition-colors">
+          <span className="text-[10px] text-[#64748b] tracking-widest uppercase group-hover:text-[#94a3b8] transition-colors">
             CLICK OR SCROLL DOWN
           </span>
         </button>

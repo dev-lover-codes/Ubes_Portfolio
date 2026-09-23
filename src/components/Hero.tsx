@@ -147,19 +147,19 @@ export const Hero: React.FC = () => {
       {/* Top Editorial Telemetry Bar */}
       <div
         ref={metadataRef}
-        className="flex flex-wrap items-center justify-between gap-3 sm:gap-4 pt-4 border-t border-white/[0.08] text-xs font-mono text-[#9da0a8]"
+        className="flex flex-wrap items-center justify-between gap-3 sm:gap-4 pt-4 border-t border-white/[0.08] text-xs font-mono text-[#94a3b8]"
       >
         <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-          <span className="inline-block w-2 h-2 rounded-full bg-[#e65c24]" />
-          <span className="text-[#f4f3ef] font-medium tracking-wider">PORTFOLIO / 2026</span>
-          <span className="text-[#5e6068]">·</span>
-          <span className="text-[#9da0a8]">B.TECH CSE ({PERSONAL_INFO.graduationYear})</span>
+          <span className="inline-block w-2 h-2 rounded-full bg-[#00f0ff]" />
+          <span className="text-[#f1f5f9] font-medium tracking-wider">PORTFOLIO / 2026</span>
+          <span className="text-[#64748b]">·</span>
+          <span className="text-[#94a3b8]">B.TECH CSE ({PERSONAL_INFO.graduationYear})</span>
         </div>
         <div className="flex items-center gap-4 sm:gap-6">
-          <span className="hidden sm:inline text-[#5e6068]">
+          <span className="hidden sm:inline text-[#64748b]">
             {PERSONAL_INFO.university.toUpperCase()}
           </span>
-          <span className="text-[#e65c24] font-medium">CGPA: {PERSONAL_INFO.cgpa}</span>
+          <span className="text-[#00f0ff] font-medium">CGPA: {PERSONAL_INFO.cgpa}</span>
         </div>
       </div>
 
@@ -169,13 +169,13 @@ export const Hero: React.FC = () => {
           {/* Left Column: Interactive Typographic Name & Core Identity */}
           <div ref={nameWrapperRef} className="lg:col-span-7 xl:col-span-8 flex flex-col overflow-visible">
             {/* Welcoming Greeting Eyebrow */}
-            <div className="mb-2 sm:mb-3 flex items-center gap-2 text-xs sm:text-sm font-mono text-[#e65c24] tracking-widest uppercase">
-              <span className="inline-block w-2 h-2 rounded-full bg-[#e65c24] animate-pulse" />
+            <div className="mb-2 sm:mb-3 flex items-center gap-2 text-xs sm:text-sm font-mono text-[#00f0ff] tracking-widest uppercase">
+              <span className="inline-block w-2 h-2 rounded-full bg-[#00f0ff] animate-pulse" />
               <span>HELLO, I'M</span>
             </div>
             <div className="overflow-visible flex flex-wrap items-baseline gap-x-4 md:gap-x-8 gap-y-2">
               <h1
-                className="font-display font-extrabold tracking-tight leading-[0.95] text-[#f4f3ef] uppercase overflow-visible flex flex-wrap items-baseline gap-x-4 md:gap-x-8 gap-y-2"
+                className="font-display font-extrabold tracking-tight leading-[0.95] text-[#f1f5f9] uppercase overflow-visible flex flex-wrap items-baseline gap-x-4 md:gap-x-8 gap-y-2"
                 data-cursor="DANCE"
               >
                 <span
@@ -185,7 +185,7 @@ export const Hero: React.FC = () => {
                   <DancingLetters
                     text={PERSONAL_INFO.firstName}
                     className="inline-flex items-baseline justify-start overflow-visible"
-                    letterClassName="font-display font-extrabold text-[clamp(1.75rem,7.5vw,3.25rem)] sm:text-[clamp(2.4rem,6.0vw,4.85rem)] md:text-[clamp(2.8rem,6.4vw,5.25rem)] lg:text-[clamp(3.2rem,6.6vw,5.75rem)] text-[#f4f3ef] tracking-tight leading-none overflow-visible hover:text-[#e65c24] transition-colors duration-200"
+                    letterClassName="font-display font-extrabold text-[clamp(1.75rem,7.5vw,3.25rem)] sm:text-[clamp(2.4rem,6.0vw,4.85rem)] md:text-[clamp(2.8rem,6.4vw,5.25rem)] lg:text-[clamp(3.2rem,6.6vw,5.75rem)] text-[#f1f5f9] tracking-tight leading-none overflow-visible hover:text-[#00f0ff] transition-colors duration-200"
                     autoPlay={true}
                     autoPlayInterval={3200}
                     initialWaveDelay={450}
@@ -193,17 +193,17 @@ export const Hero: React.FC = () => {
                 </span>
                 <span
                   ref={lastNameRef}
-                  className="inline-flex items-baseline pl-1 sm:pl-2 will-change-transform overflow-visible text-[#f4f3ef]"
+                  className="inline-flex items-baseline pl-1 sm:pl-2 will-change-transform overflow-visible text-[#f1f5f9]"
                 >
                   <DancingLetters
                     text={PERSONAL_INFO.lastName}
                     className="inline-flex items-baseline justify-start overflow-visible"
-                    letterClassName="font-display font-extrabold text-[clamp(1.75rem,7.5vw,3.25rem)] sm:text-[clamp(2.4rem,6.0vw,4.85rem)] md:text-[clamp(2.8rem,6.4vw,5.25rem)] lg:text-[clamp(3.2rem,6.6vw,5.75rem)] text-[#f4f3ef] tracking-tight leading-none overflow-visible hover:text-[#e65c24] transition-colors duration-200"
+                    letterClassName="font-display font-extrabold text-[clamp(1.75rem,7.5vw,3.25rem)] sm:text-[clamp(2.4rem,6.0vw,4.85rem)] md:text-[clamp(2.8rem,6.4vw,5.25rem)] lg:text-[clamp(3.2rem,6.6vw,5.75rem)] text-[#f1f5f9] tracking-tight leading-none overflow-visible hover:text-[#00f0ff] transition-colors duration-200"
                     autoPlay={true}
                     autoPlayInterval={3600}
                     initialWaveDelay={950}
                   />
-                  <span className="text-[#e65c24] ml-1 select-none font-display font-extrabold text-[clamp(1.75rem,7.5vw,3.25rem)] sm:text-[clamp(2.4rem,6.0vw,4.85rem)] md:text-[clamp(2.8rem,6.4vw,5.25rem)] lg:text-[clamp(3.2rem,6.6vw,5.75rem)] leading-none">
+                  <span className="text-[#00f0ff] ml-1 select-none font-display font-extrabold text-[clamp(1.75rem,7.5vw,3.25rem)] sm:text-[clamp(2.4rem,6.0vw,4.85rem)] md:text-[clamp(2.8rem,6.4vw,5.25rem)] lg:text-[clamp(3.2rem,6.6vw,5.75rem)] leading-none">
                     .
                   </span>
                 </span>
@@ -211,14 +211,14 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Welcoming Introduction */}
-            <div className="mt-6 max-w-lg font-mono text-xs text-[#9da0a8] leading-relaxed space-y-2">
-              <p className="font-sans text-base sm:text-lg text-[#f4f3ef] font-normal">
+            <div className="mt-6 max-w-lg font-mono text-xs text-[#94a3b8] leading-relaxed space-y-2">
+              <p className="font-sans text-base sm:text-lg text-[#f1f5f9] font-normal">
                 Hey, glad you're here. Take a look around.
               </p>
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-[#5e6068] pt-1 uppercase tracking-wider">
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-[#64748b] pt-1 uppercase tracking-wider">
                 <span>SCROLL TO EXPLORE · THERE'S MORE TO SEE</span>
                 <span className="hidden sm:inline">·</span>
-                <span className="text-[#9da0a8]">BENGALURU, INDIA</span>
+                <span className="text-[#94a3b8]">BENGALURU, INDIA</span>
               </div>
             </div>
           </div>
@@ -230,24 +230,24 @@ export const Hero: React.FC = () => {
               className="relative will-change-transform group select-none w-full max-w-[240px] sm:max-w-[280px] lg:max-w-[300px] mx-auto lg:mx-0"
             >
               {/* Architectural Corner Accents */}
-              <div className="absolute -top-1.5 -left-1.5 w-2.5 h-2.5 border-t border-l border-[#e65c24]/70 z-20" />
-              <div className="absolute -top-1.5 -right-1.5 w-2.5 h-2.5 border-t border-r border-[#e65c24]/70 z-20" />
-              <div className="absolute -bottom-1.5 -left-1.5 w-2.5 h-2.5 border-b border-l border-[#e65c24]/70 z-20" />
-              <div className="absolute -bottom-1.5 -right-1.5 w-2.5 h-2.5 border-b border-r border-[#e65c24]/70 z-20" />
+              <div className="absolute -top-1.5 -left-1.5 w-2.5 h-2.5 border-t border-l border-[#00f0ff]/70 z-20" />
+              <div className="absolute -top-1.5 -right-1.5 w-2.5 h-2.5 border-t border-r border-[#00f0ff]/70 z-20" />
+              <div className="absolute -bottom-1.5 -left-1.5 w-2.5 h-2.5 border-b border-l border-[#00f0ff]/70 z-20" />
+              <div className="absolute -bottom-1.5 -right-1.5 w-2.5 h-2.5 border-b border-r border-[#00f0ff]/70 z-20" />
 
               {/* Photo Frame Container */}
-              <div className="relative overflow-hidden border border-white/15 bg-[#141517] shadow-2xl transition-all duration-300 group-hover:border-white/25">
+              <div className="relative overflow-hidden border border-white/15 bg-[#0d1322] shadow-2xl transition-all duration-300 group-hover:border-white/25">
                 {/* Telemetry Bar */}
-                <div className="flex items-center justify-between px-3 py-1.5 bg-[#0c0d0e]/95 border-b border-white/10 font-mono text-[10px] text-[#9da0a8]">
+                <div className="flex items-center justify-between px-3 py-1.5 bg-[#06080f]/95 border-b border-white/10 font-mono text-[10px] text-[#94a3b8]">
                   <span className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#e65c24]" />
-                    <span className="text-[#f4f3ef] font-medium tracking-wider">FIG. 01</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#00f0ff]" />
+                    <span className="text-[#f1f5f9] font-medium tracking-wider">FIG. 01</span>
                   </span>
                   <span className="tracking-widest">A GLIMPSE</span>
                 </div>
 
                 {/* Portrait Crop (4:5) */}
-                <div className="relative aspect-[4/5] overflow-hidden bg-[#141517]">
+                <div className="relative aspect-[4/5] overflow-hidden bg-[#0d1322]">
                   <picture>
                     <source srcSet="/images/sankalp-hero-portrait.webp" type="image/webp" />
                     <img
@@ -261,13 +261,13 @@ export const Hero: React.FC = () => {
                   </picture>
 
                   {/* Atmospheric Bottom Fog Gradient */}
-                  <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#0c0d0e]/75 via-[#0c0d0e]/25 to-transparent pointer-events-none" />
+                  <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#06080f]/75 via-[#06080f]/25 to-transparent pointer-events-none" />
                 </div>
 
                 {/* Sub-frame Caption */}
-                <div className="flex items-center justify-between px-3 py-2 bg-[#0c0d0e]/95 border-t border-white/10 font-mono text-[10px] text-[#9da0a8]">
-                  <span className="text-[#f4f3ef] font-medium">{PERSONAL_INFO.name.toUpperCase()}</span>
-                  <span className="text-[#e65c24]">BENGALURU, INDIA</span>
+                <div className="flex items-center justify-between px-3 py-2 bg-[#06080f]/95 border-t border-white/10 font-mono text-[10px] text-[#94a3b8]">
+                  <span className="text-[#f1f5f9] font-medium">{PERSONAL_INFO.name.toUpperCase()}</span>
+                  <span className="text-[#00f0ff]">BENGALURU, INDIA</span>
                 </div>
               </div>
             </div>
@@ -281,7 +281,7 @@ export const Hero: React.FC = () => {
         <div ref={statementRef} className="md:col-span-2 space-y-4">
           <p className="font-sans text-lg sm:text-xl md:text-2xl text-[#eceae5] font-light leading-snug max-w-2xl">
             I like turning ideas into things people can actually use. Still learning, still building, and{' '}
-            <span className="text-[#f4f3ef] font-normal border-b border-[#e65c24]/50 pb-0.5">
+            <span className="text-[#f1f5f9] font-normal border-b border-[#00f0ff]/50 pb-0.5">
               always curious
             </span>{' '}
             about software, data, and intelligent systems.
@@ -290,7 +290,7 @@ export const Hero: React.FC = () => {
           <div className="flex flex-wrap gap-3 pt-2 font-mono text-xs">
             <a
               href="#featured-projects"
-              className="group inline-flex items-center justify-center gap-2 bg-[#f4f3ef] text-[#0c0d0e] px-5 py-2.5 font-medium transition-all duration-200 hover:bg-[#e65c24] hover:text-white w-full min-[400px]:w-auto"
+              className="group inline-flex items-center justify-center gap-2 bg-[#f1f5f9] text-[#06080f] px-5 py-2.5 font-medium transition-all duration-200 hover:bg-[#00f0ff] hover:text-white w-full min-[400px]:w-auto"
               data-cursor="WORK"
             >
               <Terminal className="w-3.5 h-3.5" />
@@ -298,7 +298,7 @@ export const Hero: React.FC = () => {
             </a>
             <a
               href="#about"
-              className="inline-flex items-center justify-center gap-2 border border-white/20 text-[#f4f3ef] px-5 py-2.5 font-medium transition-all duration-200 hover:border-[#e65c24] hover:text-[#e65c24] w-full min-[400px]:w-auto"
+              className="inline-flex items-center justify-center gap-2 border border-white/20 text-[#f1f5f9] px-5 py-2.5 font-medium transition-all duration-200 hover:border-[#00f0ff] hover:text-[#00f0ff] w-full min-[400px]:w-auto"
               data-cursor="PHILOSOPHY"
             >
               <Code2 className="w-3.5 h-3.5" />
@@ -312,12 +312,12 @@ export const Hero: React.FC = () => {
           <button
             type="button"
             onClick={handleScrollDown}
-            className="group flex items-center gap-3 text-xs font-mono text-[#9da0a8] hover:text-[#f4f3ef] transition-colors cursor-pointer"
+            className="group flex items-center gap-3 text-xs font-mono text-[#94a3b8] hover:text-[#f1f5f9] transition-colors cursor-pointer"
             aria-label="Scroll to explore"
             data-cursor="DOWN"
           >
             <span className="tracking-widest uppercase text-[11px]">SCROLL TO EXPLORE</span>
-            <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:border-[#e65c24] group-hover:text-[#e65c24] transition-all">
+            <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:border-[#00f0ff] group-hover:text-[#00f0ff] transition-all">
               <ArrowDown className="w-3.5 h-3.5 animate-bounce" />
             </div>
           </button>

@@ -367,7 +367,7 @@ function CardFace({
       href={item.href ?? "#"}
       onClick={handleClick}
       aria-label={item.label || item.alt || "Jump to section"}
-      className="group relative block h-full w-full overflow-hidden border border-white/15 bg-[#141517] shadow-2xl transition-all duration-300 hover:border-[#e65c24] hover:shadow-[0_0_30px_rgba(230,92,36,0.35)] cursor-pointer max-md:rounded-[3vw]"
+      className="group relative block h-full w-full overflow-hidden border border-white/15 bg-[#0d1322] shadow-2xl transition-all duration-300 hover:border-[#00f0ff] hover:shadow-[0_0_30px_rgba(0,240,255,0.35)] cursor-pointer max-md:rounded-[3vw]"
       style={{ borderRadius: `${cardRadius}px` }}
     >
       <img
@@ -377,18 +377,18 @@ function CardFace({
         className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
       />
       {/* Subtle vignette shadow overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0c0d0e]/85 via-black/10 to-transparent pointer-events-none transition-opacity duration-300 group-hover:opacity-50" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#06080f]/85 via-black/10 to-transparent pointer-events-none transition-opacity duration-300 group-hover:opacity-50" />
 
       {/* Top right jump indicator badge on hover */}
-      <div className="absolute top-2 right-2 flex items-center gap-1 px-1.5 py-0.5 rounded bg-[#0c0d0e]/85 border border-white/10 font-mono text-[9px] text-[#9da0a8] opacity-0 group-hover:opacity-100 transition-all duration-200 group-hover:border-[#e65c24]/50 group-hover:text-[#e65c24] pointer-events-none">
+      <div className="absolute top-2 right-2 flex items-center gap-1 px-1.5 py-0.5 rounded bg-[#06080f]/85 border border-white/10 font-mono text-[9px] text-[#94a3b8] opacity-0 group-hover:opacity-100 transition-all duration-200 group-hover:border-[#00f0ff]/50 group-hover:text-[#00f0ff] pointer-events-none">
         <span>EXPLORE</span>
         <ArrowUpRight className="w-2.5 h-2.5" />
       </div>
 
       {item.label && (
-        <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between px-2 py-1 bg-[#0c0d0e]/90 border border-white/10 rounded font-mono text-[9px] text-[#9da0a8] group-hover:border-[#e65c24]/40 group-hover:text-[#f4f3ef] transition-colors pointer-events-none">
+        <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between px-2 py-1 bg-[#06080f]/90 border border-white/10 rounded font-mono text-[9px] text-[#94a3b8] group-hover:border-[#00f0ff]/40 group-hover:text-[#f1f5f9] transition-colors pointer-events-none">
           <span className="truncate font-medium">{item.label}</span>
-          <span className="text-[#e65c24] text-[10px] ml-1 font-bold">↗</span>
+          <span className="text-[#00f0ff] text-[10px] ml-1 font-bold">↗</span>
         </div>
       )}
     </a>
@@ -424,11 +424,11 @@ export interface StackSpreadProps {
 export function StackSpread({
   cards = DEFAULT_THEME_CARDS,
   scrollLength = 175,
-  bgColor = "#0c0d0e",
+  bgColor = "#06080f",
   clusterRotation = true,
   stackScale = 0.82,
   cardRadius = 6,
-  textColor = "#f4f3ef",
+  textColor = "#f1f5f9",
   textFadeStart = 0.0,
   showScrollHint = true,
   headline,
@@ -494,21 +494,21 @@ export function StackSpread({
         >
           {headline ?? (
             <>
-              <div className="font-mono text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#e65c24] mb-3">
+              <div className="font-mono text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#00f0ff] mb-3">
                 01 // PHILOSOPHY
               </div>
               <h2
-                className="w-full max-w-5xl font-display text-[3.8vw] font-black leading-[1.06] tracking-tight text-[#f4f3ef] max-md:text-[7.8vw]"
+                className="w-full max-w-5xl font-display text-[3.8vw] font-black leading-[1.06] tracking-tight text-[#f1f5f9] max-md:text-[7.8vw]"
                 style={{ color: textColor }}
               >
-                I like turning <span className="text-[#e65c24]">ideas</span> into things people can{" "}
-                <span className="text-[#e65c24]">actually use</span>.
+                I like turning <span className="text-[#00f0ff]">ideas</span> into things people can{" "}
+                <span className="text-[#00f0ff]">actually use</span>.
               </h2>
             </>
           )}
 
           <p
-            className="mt-4 w-full max-w-xl font-mono text-[1.05vw] tracking-wider uppercase text-[#9da0a8] max-md:mt-3 max-md:text-[3.2vw]"
+            className="mt-4 w-full max-w-xl font-mono text-[1.05vw] tracking-wider uppercase text-[#94a3b8] max-md:mt-3 max-md:text-[3.2vw]"
             style={{ color: textColor, opacity: 0.75 }}
           >
             {subtitle ??
@@ -540,11 +540,11 @@ export function StackSpread({
         {/* Scroll to spread hint */}
         {showScrollHint && (
           <motion.div
-            className="pointer-events-none absolute inset-x-0 bottom-[4vh] z-20 flex flex-col items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.25em] text-[#9da0a8] max-md:bottom-6 max-md:text-[10px]"
+            className="pointer-events-none absolute inset-x-0 bottom-[4vh] z-20 flex flex-col items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.25em] text-[#94a3b8] max-md:bottom-6 max-md:text-[10px]"
             style={{ opacity: hintOpacity }}
           >
-            <span className="text-[#f4f3ef] font-medium">SCROLL TO SPREAD</span>
-            <ChevronDown className="w-4 h-4 text-[#e65c24] animate-bounce" />
+            <span className="text-[#f1f5f9] font-medium">SCROLL TO SPREAD</span>
+            <ChevronDown className="w-4 h-4 text-[#00f0ff] animate-bounce" />
           </motion.div>
         )}
       </div>

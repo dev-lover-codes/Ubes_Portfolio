@@ -150,22 +150,22 @@ export const EvolutionTimeline: React.FC = () => {
       {/* Chapter Marker & Title */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
         <div>
-          <div className="flex items-center gap-2 font-mono text-xs text-[#e65c24] uppercase tracking-widest mb-3">
+          <div className="flex items-center gap-2 font-mono text-xs text-[#00f0ff] uppercase tracking-widest mb-3">
             <span>03 // HOW I GOT HERE</span>
           </div>
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#f4f3ef]">
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#f1f5f9]">
             Evolution of Projects
           </h2>
         </div>
-        <p className="font-mono text-xs text-[#9da0a8] max-w-md leading-relaxed">
+        <p className="font-mono text-xs text-[#94a3b8] max-w-md leading-relaxed">
           How my work has evolved over time — starting from core software foundations and data analysis, then moving into machine learning and AI applications.
         </p>
       </div>
 
       {/* Trajectory Continuum Flow Bar with Illuminated Glow */}
-      <div className="mb-14 p-4 sm:p-5 rounded-2xl border border-white/[0.08] bg-[#111215]/80 backdrop-blur-sm flex flex-wrap items-center justify-between gap-3 sm:gap-4 text-xs font-mono">
-        <div className="flex items-center gap-2 text-[#5e6068] uppercase">
-          <Layers className="w-3.5 h-3.5 text-[#e65c24]" />
+      <div className="mb-14 p-4 sm:p-5 rounded-2xl border border-white/[0.08] bg-[#0b0f19]/80 backdrop-blur-sm flex flex-wrap items-center justify-between gap-3 sm:gap-4 text-xs font-mono">
+        <div className="flex items-center gap-2 text-[#64748b] uppercase">
+          <Layers className="w-3.5 h-3.5 text-[#00f0ff]" />
           <span>A FEW STEPS ALONG THE WAY</span>
         </div>
         <div className="flex flex-wrap items-center gap-1.5 sm:gap-3">
@@ -180,14 +180,14 @@ export const EvolutionTimeline: React.FC = () => {
                 <span
                   className={`px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-[11px] transition-all duration-300 font-medium ${
                     isHighlighted
-                      ? 'bg-[#e65c24]/15 text-[#e65c24] border border-[#e65c24]/40 shadow-[0_0_12px_rgba(230,92,36,0.2)]'
-                      : 'text-[#5e6068] border border-transparent'
+                      ? 'bg-[#00f0ff]/15 text-[#00f0ff] border border-[#00f0ff]/40 shadow-[0_0_12px_rgba(0,240,255,0.2)]'
+                      : 'text-[#64748b] border border-transparent'
                   }`}
                 >
                   {pillar}
                 </span>
                 {idx < trajectoryPillars.length - 1 && (
-                  <ArrowRight className="w-3 h-3 text-[#383b44]" />
+                  <ArrowRight className="w-3 h-3 text-[#334155]" />
                 )}
               </div>
             )
@@ -200,7 +200,7 @@ export const EvolutionTimeline: React.FC = () => {
         {/* Left Column: Illuminated Vertical Stage Selector with Laser Trace */}
         <div className="lg:col-span-4 relative">
           {/* Vertical Glowing Laser Guide */}
-          <div className="absolute left-6 top-6 bottom-6 w-0.5 bg-gradient-to-b from-[#e65c24]/40 via-white/10 to-[#e65c24]/40 hidden sm:block" />
+          <div className="absolute left-6 top-6 bottom-6 w-0.5 bg-gradient-to-b from-[#00f0ff]/40 via-white/10 to-[#00f0ff]/40 hidden sm:block" />
 
           <div className="flex flex-col gap-4 relative z-10">
             {progressionSteps.map((step, idx) => {
@@ -213,19 +213,19 @@ export const EvolutionTimeline: React.FC = () => {
                   onClick={() => setActiveStage(idx)}
                   className={`text-left p-4 sm:p-6 rounded-2xl transition-all duration-300 border relative overflow-hidden ${
                     isActive
-                      ? 'border-[#e65c24] bg-[#16171b] shadow-[0_0_30px_rgba(230,92,36,0.15)] text-[#f4f3ef]'
-                      : 'border-white/[0.08] bg-[#0f1013]/60 hover:border-white/20 text-[#9da0a8]'
+                      ? 'border-[#00f0ff] bg-[#16171b] shadow-[0_0_30px_rgba(0,240,255,0.15)] text-[#f1f5f9]'
+                      : 'border-white/[0.08] bg-[#0f1013]/60 hover:border-white/20 text-[#94a3b8]'
                   }`}
                   data-cursor="SELECT"
                 >
                   <div className="flex items-center justify-between font-mono text-xs mb-2">
                     <span className="flex items-center gap-2">
-                      <span className={`rounded-full transition-all duration-300 ${isActive ? 'w-2.5 h-2.5 bg-[#e65c24] animate-pulse ring-4 ring-[#e65c24]/25 shadow-[0_0_10px_rgba(230,92,36,0.8)]' : 'w-2 h-2 bg-[#5e6068]'}`} />
-                      <span className={isActive ? 'text-[#e65c24] font-bold' : 'text-[#5e6068]'}>
+                      <span className={`rounded-full transition-all duration-300 ${isActive ? 'w-2.5 h-2.5 bg-[#00f0ff] animate-pulse ring-4 ring-[#00f0ff]/25 shadow-[0_0_10px_rgba(0,240,255,0.8)]' : 'w-2 h-2 bg-[#64748b]'}`} />
+                      <span className={isActive ? 'text-[#00f0ff] font-bold' : 'text-[#64748b]'}>
                         {step.year}
                       </span>
                     </span>
-                    <span className="text-[10px] px-2 py-0.5 rounded bg-white/[0.05] text-[#9da0a8]">
+                    <span className="text-[10px] px-2 py-0.5 rounded bg-white/[0.05] text-[#94a3b8]">
                       0{idx + 1}
                     </span>
                   </div>
@@ -249,28 +249,28 @@ export const EvolutionTimeline: React.FC = () => {
 
         {/* Right Column: Selected Phase Deep Showcase */}
         <div className="lg:col-span-8 space-y-8 pl-0 lg:pl-4">
-          <div className="p-5 sm:p-6 md:p-8 rounded-2xl bg-[#111215]/80 border border-white/[0.08] relative overflow-hidden backdrop-blur-sm space-y-4">
+          <div className="p-5 sm:p-6 md:p-8 rounded-2xl bg-[#0b0f19]/80 border border-white/[0.08] relative overflow-hidden backdrop-blur-sm space-y-4">
             <div className="flex items-center justify-between font-mono text-xs">
-              <span className="text-[#e65c24] tracking-wider uppercase font-semibold">
+              <span className="text-[#00f0ff] tracking-wider uppercase font-semibold">
                 {progressionSteps[activeStage].badge}
               </span>
-              <span className="text-[#5e6068]">
+              <span className="text-[#64748b]">
                 {progressionSteps[activeStage].year}
               </span>
             </div>
 
-            <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-black text-[#f4f3ef] tracking-tight">
+            <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-black text-[#f1f5f9] tracking-tight">
               {progressionSteps[activeStage].title}
             </h3>
 
-            <p className="font-sans text-sm sm:text-base text-[#9da0a8] leading-relaxed max-w-2xl">
+            <p className="font-sans text-sm sm:text-base text-[#94a3b8] leading-relaxed max-w-2xl">
               {progressionSteps[activeStage].description}
             </p>
 
             <div className="pt-2 flex flex-wrap gap-2">
               {progressionSteps[activeStage].metrics.map((metric) => (
-                <div key={metric} className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#18191c] border border-white/10 text-xs font-mono text-[#f4f3ef]">
-                  <CheckCircle2 className="w-3 h-3 text-[#e65c24]" />
+                <div key={metric} className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#18191c] border border-white/10 text-xs font-mono text-[#f1f5f9]">
+                  <CheckCircle2 className="w-3 h-3 text-[#00f0ff]" />
                   <span>{metric}</span>
                 </div>
               ))}
@@ -279,8 +279,8 @@ export const EvolutionTimeline: React.FC = () => {
 
           {/* Milestone Projects Grid for This Phase */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2 font-mono text-xs text-[#5e6068] uppercase tracking-wider">
-              <Milestone className="w-3.5 h-3.5 text-[#e65c24]" />
+            <div className="flex items-center gap-2 font-mono text-xs text-[#64748b] uppercase tracking-wider">
+              <Milestone className="w-3.5 h-3.5 text-[#00f0ff]" />
               <span>A FEW PROJECTS THAT MARKED THE JOURNEY</span>
             </div>
 
@@ -288,22 +288,22 @@ export const EvolutionTimeline: React.FC = () => {
               {progressionSteps[activeStage].milestones.map((m) => (
                 <div
                   key={m.name}
-                  className="p-6 rounded-2xl border border-white/[0.08] bg-[#111215]/60 hover:border-[#e65c24]/40 hover:bg-[#15161a] transition-all duration-200 flex flex-col justify-between space-y-4 group"
+                  className="p-6 rounded-2xl border border-white/[0.08] bg-[#0b0f19]/60 hover:border-[#00f0ff]/40 hover:bg-[#15161a] transition-all duration-200 flex flex-col justify-between space-y-4 group"
                 >
                   <div className="space-y-2">
                     <div className="flex items-center justify-between font-mono text-[10px]">
-                      <span className="text-[#e65c24] font-semibold">{m.period}</span>
-                      <span className="text-[#5e6068]">{m.tech}</span>
+                      <span className="text-[#00f0ff] font-semibold">{m.period}</span>
+                      <span className="text-[#64748b]">{m.tech}</span>
                     </div>
-                    <h4 className="font-display text-lg sm:text-xl font-bold text-[#f4f3ef] group-hover:text-[#e65c24] transition-colors">
+                    <h4 className="font-display text-lg sm:text-xl font-bold text-[#f1f5f9] group-hover:text-[#00f0ff] transition-colors">
                       {m.name}
                     </h4>
-                    <p className="font-sans text-xs text-[#9da0a8] leading-relaxed">
+                    <p className="font-sans text-xs text-[#94a3b8] leading-relaxed">
                       {m.summary}
                     </p>
                   </div>
 
-                  <div className="pt-3 border-t border-white/[0.06] flex items-center gap-1.5 text-[11px] font-mono text-[#e65c24]">
+                  <div className="pt-3 border-t border-white/[0.06] flex items-center gap-1.5 text-[11px] font-mono text-[#00f0ff]">
                     <Sparkles className="w-3 h-3 shrink-0" />
                     <span className="truncate">{m.highlight}</span>
                   </div>

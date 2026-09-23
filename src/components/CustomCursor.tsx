@@ -80,7 +80,7 @@ export const CustomCursor: React.FC = () => {
       {/* Central precise dot */}
       <div
         ref={cursorDotRef}
-        className={`fixed top-0 left-0 -ml-1 -mt-1 w-2 h-2 rounded-full bg-[#e65c24] pointer-events-none transition-transform duration-150 ${
+        className={`fixed top-0 left-0 -ml-1 -mt-1 w-2 h-2 rounded-full bg-[#00f0ff] pointer-events-none transition-transform duration-150 ${
           isHovered ? 'scale-0' : 'scale-100'
         }`}
       />
@@ -88,12 +88,12 @@ export const CustomCursor: React.FC = () => {
       {/* Trailing context ring */}
       <div
         ref={cursorRingRef}
-        className={`fixed top-0 left-0 pointer-events-none flex items-center justify-center rounded-full border border-[#e65c24]/50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 pointer-events-none flex items-center justify-center rounded-full border border-[#00f0ff]/50 transition-all duration-300 ${
           isHovered
             ? cursorText
-              ? '-ml-8 -mt-8 w-16 h-16 bg-[#e65c24] text-white border-transparent'
-              : '-ml-5 -mt-5 w-10 h-10 bg-[#e65c24]/15 border-[#e65c24]'
-            : '-ml-4 -mt-4 w-8 h-8 border-[#f4f3ef]/20'
+              ? '-ml-8 -mt-8 w-16 h-16 bg-[#00f0ff] text-white border-transparent'
+              : '-ml-5 -mt-5 w-10 h-10 bg-[#00f0ff]/15 border-[#00f0ff]'
+            : '-ml-4 -mt-4 w-8 h-8 border-[#f1f5f9]/20'
         }`}
       >
         {cursorText && (

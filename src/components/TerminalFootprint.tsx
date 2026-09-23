@@ -23,9 +23,9 @@ export const TerminalFootprint: React.FC = () => {
       className="py-24 md:py-36 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto border-t border-white/[0.08]"
     >
       {/* Chapter Marker */}
-      <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-xs text-[#9da0a8] mb-12 uppercase tracking-widest">
+      <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-xs text-[#94a3b8] mb-12 uppercase tracking-widest">
         <span className="flex items-center gap-2">
-          <span className="text-[#e65c24]">07</span>
+          <span className="text-[#00f0ff]">07</span>
           <span>// FIND ME ONLINE</span>
         </span>
         <span>GITHUB · LEETCODE · LINKEDIN</span>
@@ -33,10 +33,10 @@ export const TerminalFootprint: React.FC = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-12">
         <div className="lg:col-span-7 space-y-4">
-          <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-[#f4f3ef] break-words">
-            FIND MY WORK &amp; PROFILES<span className="text-[#e65c24]">.</span>
+          <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-[#f1f5f9] break-words">
+            FIND MY WORK &amp; PROFILES<span className="text-[#00f0ff]">.</span>
           </h2>
-          <p className="font-sans text-base text-[#9da0a8] leading-relaxed max-w-lg">
+          <p className="font-sans text-base text-[#94a3b8] leading-relaxed max-w-lg">
             Writing code, solving algorithmic problems, and building projects. Here&apos;s where to find my repositories and online activity.
           </p>
         </div>
@@ -47,49 +47,49 @@ export const TerminalFootprint: React.FC = () => {
             href={PERSONAL_INFO.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#111215] border border-white/10 hover:border-[#e65c24] text-[#f4f3ef] font-mono text-xs transition-all shadow-lg"
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#0b0f19] border border-white/10 hover:border-[#00f0ff] text-[#f1f5f9] font-mono text-xs transition-all shadow-lg"
             data-cursor="GITHUB"
           >
-            <GithubIcon className="w-4 h-4 text-[#e65c24]" />
+            <GithubIcon className="w-4 h-4 text-[#00f0ff]" />
             <span>GITHUB</span>
-            <ArrowUpRight className="w-3.5 h-3.5 text-[#5e6068]" />
+            <ArrowUpRight className="w-3.5 h-3.5 text-[#64748b]" />
           </a>
 
           <a
             href={PERSONAL_INFO.leetcode}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#111215] border border-white/10 hover:border-[#e65c24] text-[#f4f3ef] font-mono text-xs transition-all shadow-lg"
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#0b0f19] border border-white/10 hover:border-[#00f0ff] text-[#f1f5f9] font-mono text-xs transition-all shadow-lg"
             data-cursor="LEETCODE"
           >
-            <LeetCodeIcon className="w-4 h-4 text-[#e65c24]" />
+            <LeetCodeIcon className="w-4 h-4 text-[#00f0ff]" />
             <span>LEETCODE</span>
-            <ArrowUpRight className="w-3.5 h-3.5 text-[#5e6068]" />
+            <ArrowUpRight className="w-3.5 h-3.5 text-[#64748b]" />
           </a>
 
           <a
             href={PERSONAL_INFO.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#111215] border border-white/10 hover:border-[#e65c24] text-[#f4f3ef] font-mono text-xs transition-all shadow-lg"
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#0b0f19] border border-white/10 hover:border-[#00f0ff] text-[#f1f5f9] font-mono text-xs transition-all shadow-lg"
             data-cursor="LINKEDIN"
           >
-            <LinkedinIcon className="w-4 h-4 text-[#e65c24]" />
+            <LinkedinIcon className="w-4 h-4 text-[#00f0ff]" />
             <span>LINKEDIN</span>
-            <ArrowUpRight className="w-3.5 h-3.5 text-[#5e6068]" />
+            <ArrowUpRight className="w-3.5 h-3.5 text-[#64748b]" />
           </a>
         </div>
       </div>
 
       {/* Developer Terminal Window with Interactive Tabs */}
-      <div className="rounded-2xl bg-[#0c0d0e] border border-white/[0.08] font-mono text-xs overflow-hidden shadow-2xl">
+      <div className="rounded-2xl bg-[#06080f] border border-white/[0.08] font-mono text-xs overflow-hidden shadow-2xl">
         {/* Terminal Header & Tabs */}
-        <div className="px-4 py-3 sm:px-6 sm:py-4 bg-[#111215] border-b border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
-          <div className="flex items-center gap-2 text-[#5e6068] text-[11px]">
+        <div className="px-4 py-3 sm:px-6 sm:py-4 bg-[#0b0f19] border-b border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
+          <div className="flex items-center gap-2 text-[#64748b] text-[11px]">
             <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
             <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
             <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
-            <span className="ml-2 font-mono text-xs text-[#9da0a8]">CODE &amp; PROFILES</span>
+            <span className="ml-2 font-mono text-xs text-[#94a3b8]">CODE &amp; PROFILES</span>
           </div>
 
           {/* Tab Switcher */}
@@ -105,8 +105,8 @@ export const TerminalFootprint: React.FC = () => {
                 onClick={() => setActiveTab(tab.id as 'github' | 'leetcode' | 'tools')}
                 className={`flex items-center gap-1.5 px-3 py-1 rounded text-[11px] transition-all ${
                   activeTab === tab.id
-                    ? 'bg-[#e65c24] text-white font-semibold'
-                    : 'bg-[#18191c] text-[#9da0a8] hover:text-[#f4f3ef]'
+                    ? 'bg-[#00f0ff] text-white font-semibold'
+                    : 'bg-[#18191c] text-[#94a3b8] hover:text-[#f1f5f9]'
                 }`}
                 data-cursor="TAB"
               >
@@ -121,8 +121,8 @@ export const TerminalFootprint: React.FC = () => {
         <div className="p-4 sm:p-6 md:p-8">
           {activeTab === 'github' && (
             <div className="space-y-4">
-              <div className="text-[#9da0a8] flex items-center gap-2 font-mono text-xs">
-                <span className="text-[#e65c24]">//</span>
+              <div className="text-[#94a3b8] flex items-center gap-2 font-mono text-xs">
+                <span className="text-[#00f0ff]">//</span>
                 <span>FEATURED REPOSITORIES</span>
               </div>
 
@@ -133,13 +133,13 @@ export const TerminalFootprint: React.FC = () => {
                     className="p-3 sm:p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-[#141518] transition-colors"
                   >
                     <div className="flex items-center gap-2">
-                      <span className="text-[#e65c24]">›</span>
-                      <span className="text-[#f4f3ef] font-medium break-all sm:break-normal">{repo.name}</span>
+                      <span className="text-[#00f0ff]">›</span>
+                      <span className="text-[#f1f5f9] font-medium break-all sm:break-normal">{repo.name}</span>
                     </div>
-                    <div className="flex items-center gap-3 text-[11px] text-[#9da0a8]">
+                    <div className="flex items-center gap-3 text-[11px] text-[#94a3b8]">
                       <span>{repo.lang}</span>
-                      <span className="text-[#5e6068]">·</span>
-                      <span className="text-[#e65c24]">{repo.tag}</span>
+                      <span className="text-[#64748b]">·</span>
+                      <span className="text-[#00f0ff]">{repo.tag}</span>
                     </div>
                   </div>
                 ))}
@@ -149,28 +149,28 @@ export const TerminalFootprint: React.FC = () => {
 
           {activeTab === 'leetcode' && (
             <div className="space-y-6">
-              <div className="text-[#9da0a8] flex items-center gap-2 font-mono text-xs">
-                <span className="text-[#e65c24]">//</span>
+              <div className="text-[#94a3b8] flex items-center gap-2 font-mono text-xs">
+                <span className="text-[#00f0ff]">//</span>
                 <span>PROBLEM SOLVING &amp; PRACTICE</span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div className="p-4 rounded-xl bg-[#111215] border border-white/[0.06]">
-                  <span className="text-[10px] font-mono text-[#5e6068] block mb-1">DSA &amp; PROBLEM SOLVING</span>
-                  <div className="text-xl font-display font-bold text-[#f4f3ef]">Problem Solving</div>
-                  <p className="font-sans text-xs text-[#9da0a8] mt-1">Regular practice with data structures and algorithms.</p>
+                <div className="p-4 rounded-xl bg-[#0b0f19] border border-white/[0.06]">
+                  <span className="text-[10px] font-mono text-[#64748b] block mb-1">DSA &amp; PROBLEM SOLVING</span>
+                  <div className="text-xl font-display font-bold text-[#f1f5f9]">Problem Solving</div>
+                  <p className="font-sans text-xs text-[#94a3b8] mt-1">Regular practice with data structures and algorithms.</p>
                 </div>
 
-                <div className="p-4 rounded-xl bg-[#111215] border border-white/[0.06]">
-                  <span className="text-[10px] font-mono text-[#5e6068] block mb-1">LANGUAGES I USE</span>
-                  <div className="text-xl font-display font-bold text-[#e65c24]">C++ &amp; Python</div>
-                  <p className="font-sans text-xs text-[#9da0a8] mt-1">Practicing clean algorithmic solutions and standard library data structures.</p>
+                <div className="p-4 rounded-xl bg-[#0b0f19] border border-white/[0.06]">
+                  <span className="text-[10px] font-mono text-[#64748b] block mb-1">LANGUAGES I USE</span>
+                  <div className="text-xl font-display font-bold text-[#00f0ff]">C++ &amp; Python</div>
+                  <p className="font-sans text-xs text-[#94a3b8] mt-1">Practicing clean algorithmic solutions and standard library data structures.</p>
                 </div>
 
-                <div className="p-4 rounded-xl bg-[#111215] border border-white/[0.06]">
-                  <span className="text-[10px] font-mono text-[#5e6068] block mb-1">CURRENT FOCUS</span>
+                <div className="p-4 rounded-xl bg-[#0b0f19] border border-white/[0.06]">
+                  <span className="text-[10px] font-mono text-[#64748b] block mb-1">CURRENT FOCUS</span>
                   <div className="text-xl font-display font-bold text-emerald-400">Databases &amp; Systems</div>
-                  <p className="font-sans text-xs text-[#9da0a8] mt-1">Working with databases, SQL, and backend development.</p>
+                  <p className="font-sans text-xs text-[#94a3b8] mt-1">Working with databases, SQL, and backend development.</p>
                 </div>
               </div>
             </div>
@@ -178,18 +178,18 @@ export const TerminalFootprint: React.FC = () => {
 
           {activeTab === 'tools' && (
             <div className="space-y-4 font-mono text-xs">
-              <div className="text-[#9da0a8] flex items-center gap-2 font-mono text-xs">
-                <span className="text-[#e65c24]">//</span>
+              <div className="text-[#94a3b8] flex items-center gap-2 font-mono text-xs">
+                <span className="text-[#00f0ff]">//</span>
                 <span>CORE TOOLS &amp; TECHNOLOGIES</span>
               </div>
 
-              <div className="p-5 rounded-xl bg-[#111215] border border-white/[0.06] grid grid-cols-1 sm:grid-cols-2 gap-4 text-[#9da0a8]">
-                <div><span className="text-[#f4f3ef]">Languages:</span> Python, C++, Java, JavaScript, SQL</div>
-                <div><span className="text-[#f4f3ef]">Frameworks:</span> FastAPI, Node.js, Streamlit</div>
-                <div><span className="text-[#f4f3ef]">Data &amp; ML:</span> Pandas, NumPy, Scikit-Learn, Power BI</div>
-                <div><span className="text-[#f4f3ef]">Databases:</span> MySQL, SQLite, PostgreSQL</div>
-                <div><span className="text-[#f4f3ef]">Tools:</span> Git, GitHub, VS Code</div>
-                <div><span className="text-[#f4f3ef]">Environment:</span> Linux / Windows</div>
+              <div className="p-5 rounded-xl bg-[#0b0f19] border border-white/[0.06] grid grid-cols-1 sm:grid-cols-2 gap-4 text-[#94a3b8]">
+                <div><span className="text-[#f1f5f9]">Languages:</span> Python, C++, Java, JavaScript, SQL</div>
+                <div><span className="text-[#f1f5f9]">Frameworks:</span> FastAPI, Node.js, Streamlit</div>
+                <div><span className="text-[#f1f5f9]">Data &amp; ML:</span> Pandas, NumPy, Scikit-Learn, Power BI</div>
+                <div><span className="text-[#f1f5f9]">Databases:</span> MySQL, SQLite, PostgreSQL</div>
+                <div><span className="text-[#f1f5f9]">Tools:</span> Git, GitHub, VS Code</div>
+                <div><span className="text-[#f1f5f9]">Environment:</span> Linux / Windows</div>
               </div>
             </div>
           )}

@@ -86,13 +86,13 @@ export const ContactSection: React.FC = () => {
       className="py-24 md:py-36 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto border-t border-white/[0.08]"
     >
       {/* Chapter Marker */}
-      <div className="flex flex-wrap items-center justify-between gap-3 font-mono text-xs text-[#9da0a8] mb-12 uppercase tracking-widest">
+      <div className="flex flex-wrap items-center justify-between gap-3 font-mono text-xs text-[#94a3b8] mb-12 uppercase tracking-widest">
         <span className="flex items-center gap-2">
-          <span className="text-[#e65c24]">08</span>
+          <span className="text-[#00f0ff]">08</span>
           <span>// GET IN TOUCH</span>
         </span>
         <div className="flex items-center gap-2">
-          <Clock className="w-3.5 h-3.5 text-[#e65c24]" />
+          <Clock className="w-3.5 h-3.5 text-[#00f0ff]" />
           <span className="text-[#eceae5]">{bengaluruTime || 'BENGALURU, INDIA'}</span>
         </div>
       </div>
@@ -105,12 +105,12 @@ export const ContactSection: React.FC = () => {
         </div>
 
         <div className="overflow-hidden">
-          <h2 className="font-display text-4xl sm:text-7xl md:text-8xl font-black tracking-tight text-[#f4f3ef] leading-[0.95] break-words">
+          <h2 className="font-display text-4xl sm:text-7xl md:text-8xl font-black tracking-tight text-[#f1f5f9] leading-[0.95] break-words">
             Let&apos;s build <br />
-            <span className="text-[#e65c24]">something</span> meaningful.
+            <span className="text-[#00f0ff]">something</span> meaningful.
           </h2>
         </div>
-        <p className="contact-statement font-sans text-base sm:text-lg md:text-xl text-[#9da0a8] leading-relaxed max-w-2xl font-light pt-2">
+        <p className="contact-statement font-sans text-base sm:text-lg md:text-xl text-[#94a3b8] leading-relaxed max-w-2xl font-light pt-2">
           I&apos;m always happy to talk about opportunities, collaborations, projects, or technology. Or just say hi.
         </p>
       </div>
@@ -120,10 +120,10 @@ export const ContactSection: React.FC = () => {
         {/* Left Column: Direct Connection Channels */}
         <div className="lg:col-span-5 space-y-4">
           {/* Email Card */}
-          <div className="p-4 sm:p-6 rounded-2xl bg-[#111215]/80 border border-white/[0.08] hover:border-[#e65c24]/40 transition-all duration-200 space-y-3">
-            <div className="flex items-center justify-between font-mono text-xs text-[#5e6068]">
+          <div className="p-4 sm:p-6 rounded-2xl bg-[#0b0f19]/80 border border-white/[0.08] hover:border-[#00f0ff]/40 transition-all duration-200 space-y-3">
+            <div className="flex items-center justify-between font-mono text-xs text-[#64748b]">
               <span className="flex items-center gap-2 uppercase tracking-wider">
-                <Mail className="w-3.5 h-3.5 text-[#e65c24]" />
+                <Mail className="w-3.5 h-3.5 text-[#00f0ff]" />
                 EMAIL
               </span>
               <span className="text-emerald-400">EMAIL ME</span>
@@ -131,7 +131,7 @@ export const ContactSection: React.FC = () => {
 
             <a
               href={`mailto:${PERSONAL_INFO.email}`}
-              className="font-display text-base sm:text-xl font-bold text-[#f4f3ef] hover:text-[#e65c24] transition-colors block break-all"
+              className="font-display text-base sm:text-xl font-bold text-[#f1f5f9] hover:text-[#00f0ff] transition-colors block break-all"
             >
               {PERSONAL_INFO.email}
             </a>
@@ -139,10 +139,10 @@ export const ContactSection: React.FC = () => {
             <button
               type="button"
               onClick={handleCopyEmail}
-              className="inline-flex items-center gap-2 font-mono text-xs text-[#9da0a8] hover:text-[#f4f3ef] transition-colors cursor-pointer pt-1"
+              className="inline-flex items-center gap-2 font-mono text-xs text-[#94a3b8] hover:text-[#f1f5f9] transition-colors cursor-pointer pt-1"
               data-cursor="COPY"
             >
-              {copied ? <Check className="w-3.5 h-3.5 text-[#e65c24]" /> : <Copy className="w-3.5 h-3.5" />}
+              {copied ? <Check className="w-3.5 h-3.5 text-[#00f0ff]" /> : <Copy className="w-3.5 h-3.5" />}
               <span>{copied ? 'COPIED' : 'COPY EMAIL'}</span>
             </button>
           </div>
@@ -153,16 +153,16 @@ export const ContactSection: React.FC = () => {
               href={PERSONAL_INFO.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-5 rounded-2xl bg-[#111215]/80 border border-white/[0.08] hover:border-[#e65c24]/40 hover:bg-[#141519] transition-all duration-200 flex flex-col justify-between space-y-3 group"
+              className="p-5 rounded-2xl bg-[#0b0f19]/80 border border-white/[0.08] hover:border-[#00f0ff]/40 hover:bg-[#141519] transition-all duration-200 flex flex-col justify-between space-y-3 group"
               data-cursor="LINKEDIN"
             >
               <div className="flex items-center justify-between">
-                <LinkedinIcon className="w-5 h-5 text-[#e65c24]" />
-                <ArrowUpRight className="w-4 h-4 text-[#5e6068] group-hover:text-[#e65c24] transition-colors" />
+                <LinkedinIcon className="w-5 h-5 text-[#00f0ff]" />
+                <ArrowUpRight className="w-4 h-4 text-[#64748b] group-hover:text-[#00f0ff] transition-colors" />
               </div>
               <div>
-                <span className="font-mono text-[10px] text-[#5e6068] block">CONNECT</span>
-                <span className="font-display text-base font-bold text-[#f4f3ef] group-hover:text-[#e65c24] transition-colors">
+                <span className="font-mono text-[10px] text-[#64748b] block">CONNECT</span>
+                <span className="font-display text-base font-bold text-[#f1f5f9] group-hover:text-[#00f0ff] transition-colors">
                   LinkedIn
                 </span>
               </div>
@@ -172,16 +172,16 @@ export const ContactSection: React.FC = () => {
               href={PERSONAL_INFO.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-5 rounded-2xl bg-[#111215]/80 border border-white/[0.08] hover:border-[#e65c24]/40 hover:bg-[#141519] transition-all duration-200 flex flex-col justify-between space-y-3 group"
+              className="p-5 rounded-2xl bg-[#0b0f19]/80 border border-white/[0.08] hover:border-[#00f0ff]/40 hover:bg-[#141519] transition-all duration-200 flex flex-col justify-between space-y-3 group"
               data-cursor="GITHUB"
             >
               <div className="flex items-center justify-between">
-                <GithubIcon className="w-5 h-5 text-[#e65c24]" />
-                <ArrowUpRight className="w-4 h-4 text-[#5e6068] group-hover:text-[#e65c24] transition-colors" />
+                <GithubIcon className="w-5 h-5 text-[#00f0ff]" />
+                <ArrowUpRight className="w-4 h-4 text-[#64748b] group-hover:text-[#00f0ff] transition-colors" />
               </div>
               <div>
-                <span className="font-mono text-[10px] text-[#5e6068] block">REPOSITORIES</span>
-                <span className="font-display text-base font-bold text-[#f4f3ef] group-hover:text-[#e65c24] transition-colors">
+                <span className="font-mono text-[10px] text-[#64748b] block">REPOSITORIES</span>
+                <span className="font-display text-base font-bold text-[#f1f5f9] group-hover:text-[#00f0ff] transition-colors">
                   GitHub
                 </span>
               </div>
@@ -189,20 +189,20 @@ export const ContactSection: React.FC = () => {
           </div>
 
           {/* Phone Card */}
-          <div className="p-4 sm:p-5 rounded-2xl bg-[#111215]/80 border border-white/[0.08] flex flex-wrap items-center justify-between gap-2 sm:gap-4">
+          <div className="p-4 sm:p-5 rounded-2xl bg-[#0b0f19]/80 border border-white/[0.08] flex flex-wrap items-center justify-between gap-2 sm:gap-4">
             <div className="space-y-1">
-              <span className="font-mono text-[10px] text-[#5e6068] uppercase flex items-center gap-1.5">
-                <Phone className="w-3 h-3 text-[#e65c24]" />
+              <span className="font-mono text-[10px] text-[#64748b] uppercase flex items-center gap-1.5">
+                <Phone className="w-3 h-3 text-[#00f0ff]" />
                 PHONE
               </span>
               <a
                 href={`tel:${PERSONAL_INFO.phone.replace(/\s+/g, '')}`}
-                className="font-display text-sm sm:text-base font-bold text-[#f4f3ef] hover:text-[#e65c24] transition-colors block"
+                className="font-display text-sm sm:text-base font-bold text-[#f1f5f9] hover:text-[#00f0ff] transition-colors block"
               >
                 {PERSONAL_INFO.phone}
               </a>
             </div>
-            <span className="font-mono text-[10px] sm:text-[11px] text-[#9da0a8] px-2.5 py-1 rounded bg-white/[0.04]">
+            <span className="font-mono text-[10px] sm:text-[11px] text-[#94a3b8] px-2.5 py-1 rounded bg-white/[0.04]">
               IST (UTC+5:30)
             </span>
           </div>
@@ -210,18 +210,18 @@ export const ContactSection: React.FC = () => {
 
         {/* Right Column: Interactive Any Queries Section */}
         <div className="lg:col-span-7">
-          <div className="p-4 sm:p-6 md:p-8 rounded-2xl bg-[#111215]/90 border border-white/[0.08] shadow-2xl space-y-6">
+          <div className="p-4 sm:p-6 md:p-8 rounded-2xl bg-[#0b0f19]/90 border border-white/[0.08] shadow-2xl space-y-6">
             <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/[0.06] pb-4">
-              <div className="flex items-center gap-2 font-mono text-xs text-[#f4f3ef]">
-                <HelpCircle className="w-4 h-4 text-[#e65c24]" />
+              <div className="flex items-center gap-2 font-mono text-xs text-[#f1f5f9]">
+                <HelpCircle className="w-4 h-4 text-[#00f0ff]" />
                 <span className="font-bold tracking-wider uppercase">LET&apos;S TALK</span>
               </div>
-              <span className="font-mono text-[10px] sm:text-[11px] text-[#5e6068]">COMMON QUESTIONS &amp; MESSAGE</span>
+              <span className="font-mono text-[10px] sm:text-[11px] text-[#64748b]">COMMON QUESTIONS &amp; MESSAGE</span>
             </div>
 
             {/* Accordion FAQs */}
             <div className="space-y-3">
-              <div className="text-[11px] font-mono text-[#9da0a8] uppercase tracking-wider">
+              <div className="text-[11px] font-mono text-[#94a3b8] uppercase tracking-wider">
                 // COMMON QUESTIONS:
               </div>
               {faqs.map((faq, index) => {
@@ -231,8 +231,8 @@ export const ContactSection: React.FC = () => {
                     key={faq.q}
                     className={`rounded-xl border transition-all overflow-hidden ${
                       isOpen
-                        ? 'border-[#e65c24]/50 bg-[#16171b]'
-                        : 'border-white/[0.06] bg-[#0c0d0e]/60 hover:border-white/20'
+                        ? 'border-[#00f0ff]/50 bg-[#16171b]'
+                        : 'border-white/[0.06] bg-[#06080f]/60 hover:border-white/20'
                     }`}
                   >
                     <button
@@ -240,17 +240,17 @@ export const ContactSection: React.FC = () => {
                       onClick={() => setOpenFaqIndex(isOpen ? null : index)}
                       className="w-full p-4 flex items-center justify-between text-left gap-3 cursor-pointer"
                     >
-                      <span className="font-display font-semibold text-sm text-[#f4f3ef]">
+                      <span className="font-display font-semibold text-sm text-[#f1f5f9]">
                         {faq.q}
                       </span>
                       <ChevronDown
-                        className={`w-4 h-4 text-[#e65c24] shrink-0 transition-transform duration-200 ${
+                        className={`w-4 h-4 text-[#00f0ff] shrink-0 transition-transform duration-200 ${
                           isOpen ? 'rotate-180' : ''
                         }`}
                       />
                     </button>
                     {isOpen && (
-                      <div className="px-4 pb-4 font-sans text-xs text-[#9da0a8] leading-relaxed border-t border-white/[0.04] pt-3">
+                      <div className="px-4 pb-4 font-sans text-xs text-[#94a3b8] leading-relaxed border-t border-white/[0.04] pt-3">
                         {faq.a}
                       </div>
                     )}
@@ -261,44 +261,44 @@ export const ContactSection: React.FC = () => {
 
             {/* Direct Custom Query Box */}
             <div className="pt-4 border-t border-white/[0.06] space-y-4">
-              <div className="flex items-center gap-2 font-mono text-xs text-[#f4f3ef]">
-                <MessageSquare className="w-3.5 h-3.5 text-[#e65c24]" />
+              <div className="flex items-center gap-2 font-mono text-xs text-[#f1f5f9]">
+                <MessageSquare className="w-3.5 h-3.5 text-[#00f0ff]" />
                 <span className="uppercase tracking-wider">SEND A MESSAGE</span>
               </div>
 
               <form onSubmit={handleSendQuery} className="space-y-3 font-mono text-xs">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div className="space-y-1">
-                    <label className="text-[#9da0a8] block text-[10px]">YOUR NAME</label>
+                    <label className="text-[#94a3b8] block text-[10px]">YOUR NAME</label>
                     <input
                       type="text"
                       value={queryName}
                       onChange={(e) => setQueryName(e.target.value)}
                       placeholder="e.g. Alex Chen"
-                      className="w-full bg-[#0c0d0e] border border-white/10 rounded-xl px-3.5 py-2 text-xs text-[#f4f3ef] placeholder-[#5e6068] focus:border-[#e65c24] outline-none"
+                      className="w-full bg-[#06080f] border border-white/10 rounded-xl px-3.5 py-2 text-xs text-[#f1f5f9] placeholder-[#64748b] focus:border-[#00f0ff] outline-none"
                     />
                   </div>
 
                   <div className="space-y-1">
-                    <label className="text-[#9da0a8] block text-[10px]">YOUR EMAIL</label>
+                    <label className="text-[#94a3b8] block text-[10px]">YOUR EMAIL</label>
                     <input
                       type="text"
                       value={queryEmail}
                       onChange={(e) => setQueryEmail(e.target.value)}
                       placeholder="e.g. alex@example.com"
-                      className="w-full bg-[#0c0d0e] border border-white/10 rounded-xl px-3.5 py-2 text-xs text-[#f4f3ef] placeholder-[#5e6068] focus:border-[#e65c24] outline-none"
+                      className="w-full bg-[#06080f] border border-white/10 rounded-xl px-3.5 py-2 text-xs text-[#f1f5f9] placeholder-[#64748b] focus:border-[#00f0ff] outline-none"
                     />
                   </div>
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-[#9da0a8] block text-[10px]">YOUR MESSAGE</label>
+                  <label className="text-[#94a3b8] block text-[10px]">YOUR MESSAGE</label>
                   <textarea
                     rows={3}
                     value={queryText}
                     onChange={(e) => setQueryText(e.target.value)}
                     placeholder="Type your message or question here..."
-                    className="w-full bg-[#0c0d0e] border border-white/10 rounded-xl p-3.5 text-xs text-[#f4f3ef] placeholder-[#5e6068] focus:border-[#e65c24] outline-none resize-none font-sans"
+                    className="w-full bg-[#06080f] border border-white/10 rounded-xl p-3.5 text-xs text-[#f1f5f9] placeholder-[#64748b] focus:border-[#00f0ff] outline-none resize-none font-sans"
                   />
                 </div>
 
@@ -306,16 +306,16 @@ export const ContactSection: React.FC = () => {
                   <button
                     type="button"
                     onClick={handleCopyQuery}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-white/10 text-xs text-[#9da0a8] hover:text-[#f4f3ef] hover:border-white/25 transition-all"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-white/10 text-xs text-[#94a3b8] hover:text-[#f1f5f9] hover:border-white/25 transition-all"
                     data-cursor="COPY"
                   >
-                    {queryCopied ? <Check className="w-3.5 h-3.5 text-[#e65c24]" /> : <Copy className="w-3.5 h-3.5" />}
+                    {queryCopied ? <Check className="w-3.5 h-3.5 text-[#00f0ff]" /> : <Copy className="w-3.5 h-3.5" />}
                     <span>{queryCopied ? 'COPIED' : 'COPY TEXT'}</span>
                   </button>
 
                   <button
                     type="submit"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-[#e65c24] hover:bg-[#ff6e35] text-white font-semibold text-xs transition-colors cursor-pointer shadow-[0_0_20px_rgba(230,92,36,0.3)]"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-[#00f0ff] hover:bg-[#ff6e35] text-white font-semibold text-xs transition-colors cursor-pointer shadow-[0_0_20px_rgba(0,240,255,0.3)]"
                     data-cursor="SEND"
                   >
                     <span>SEND MESSAGE</span>

@@ -92,9 +92,9 @@ export const AboutStatement: React.FC = () => {
       className="relative w-full border-t border-white/[0.08] scroll-mt-20"
     >
       {/* Editorial Chapter Header */}
-      <div className="pt-8 md:pt-12 pb-2 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2 font-mono text-[10px] sm:text-xs text-[#9da0a8] uppercase tracking-widest">
+      <div className="pt-8 md:pt-12 pb-2 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2 font-mono text-[10px] sm:text-xs text-[#94a3b8] uppercase tracking-widest">
         <span className="flex items-center gap-2">
-          <span className="text-[#e65c24]">01</span>
+          <span className="text-[#00f0ff]">01</span>
           <span>// PHILOSOPHY</span>
         </span>
         <span>DAYANANDA SAGAR UNIVERSITY · CSE · 2028</span>
@@ -105,19 +105,19 @@ export const AboutStatement: React.FC = () => {
         <StackSpread
           scrollLength={175}
           bgColor="transparent"
-          textColor="#f4f3ef"
+          textColor="#f1f5f9"
           cardRadius={8}
           stackScale={0.82}
           headline={
             <>
-              <div className="font-mono text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#e65c24] mb-3">
+              <div className="font-mono text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#00f0ff] mb-3">
                 01 // PHILOSOPHY
               </div>
-              <h2 className="w-full max-w-5xl font-display text-[3.8vw] font-black leading-[1.06] tracking-tight text-[#f4f3ef] max-md:text-[7.8vw]">
-                I like turning <span className="text-[#e65c24]">ideas</span> into things people can{" "}
-                <span className="text-[#e65c24]">actually use</span>.
+              <h2 className="w-full max-w-5xl font-display text-[3.8vw] font-black leading-[1.06] tracking-tight text-[#f1f5f9] max-md:text-[7.8vw]">
+                I like turning <span className="text-[#00f0ff]">ideas</span> into things people can{" "}
+                <span className="text-[#00f0ff]">actually use</span>.
               </h2>
-              <p className="mt-3 font-mono text-xs sm:text-sm text-[#9da0a8] tracking-wider">
+              <p className="mt-3 font-mono text-xs sm:text-sm text-[#94a3b8] tracking-wider">
                 Still learning. Still building. Always curious.
               </p>
             </>
@@ -135,11 +135,11 @@ export const AboutStatement: React.FC = () => {
         >
           {pillars.map((p) => (
             <div key={p.title} className="pillar-item space-y-2">
-              <span className="font-display text-lg sm:text-2xl lg:text-3xl font-extrabold text-[#f4f3ef] block tracking-tight break-words">
+              <span className="font-display text-lg sm:text-2xl lg:text-3xl font-extrabold text-[#f1f5f9] block tracking-tight break-words">
                 {p.title}
-                <span className="text-[#e65c24]">.</span>
+                <span className="text-[#00f0ff]">.</span>
               </span>
-              <p className="font-sans text-xs sm:text-sm text-[#9da0a8] leading-relaxed">
+              <p className="font-sans text-xs sm:text-sm text-[#94a3b8] leading-relaxed">
                 {p.desc}
               </p>
             </div>
@@ -150,7 +150,7 @@ export const AboutStatement: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pt-8">
         {/* Left Column: Authentic Landscape Visual & Personal Context */}
         <div className="lg:col-span-6 space-y-6">
-          <div className="font-mono text-xs text-[#e65c24] tracking-widest uppercase">
+          <div className="font-mono text-xs text-[#00f0ff] tracking-widest uppercase">
             // PHILOSOPHY
           </div>
 
@@ -160,23 +160,23 @@ export const AboutStatement: React.FC = () => {
             className="relative will-change-transform group select-none my-4"
           >
             {/* Fine architectural corner accents */}
-            <div className="absolute -top-1.5 -left-1.5 w-2.5 h-2.5 border-t border-l border-[#e65c24]/70 z-20" />
-            <div className="absolute -top-1.5 -right-1.5 w-2.5 h-2.5 border-t border-r border-[#e65c24]/70 z-20" />
-            <div className="absolute -bottom-1.5 -left-1.5 w-2.5 h-2.5 border-b border-l border-[#e65c24]/70 z-20" />
-            <div className="absolute -bottom-1.5 -right-1.5 w-2.5 h-2.5 border-b border-r border-[#e65c24]/70 z-20" />
+            <div className="absolute -top-1.5 -left-1.5 w-2.5 h-2.5 border-t border-l border-[#00f0ff]/70 z-20" />
+            <div className="absolute -top-1.5 -right-1.5 w-2.5 h-2.5 border-t border-r border-[#00f0ff]/70 z-20" />
+            <div className="absolute -bottom-1.5 -left-1.5 w-2.5 h-2.5 border-b border-l border-[#00f0ff]/70 z-20" />
+            <div className="absolute -bottom-1.5 -right-1.5 w-2.5 h-2.5 border-b border-r border-[#00f0ff]/70 z-20" />
 
-            <div className="relative overflow-hidden border border-white/15 bg-[#141517] shadow-2xl transition-all duration-300 group-hover:border-white/25">
+            <div className="relative overflow-hidden border border-white/15 bg-[#0d1322] shadow-2xl transition-all duration-300 group-hover:border-white/25">
               {/* Header */}
-              <div className="flex items-center justify-between px-3.5 py-1.5 bg-[#0c0d0e]/95 border-b border-white/10 font-mono text-[10px] text-[#9da0a8]">
+              <div className="flex items-center justify-between px-3.5 py-1.5 bg-[#06080f]/95 border-b border-white/10 font-mono text-[10px] text-[#94a3b8]">
                 <span className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#e65c24]" />
-                  <span className="text-[#f4f3ef] font-medium tracking-wider">FIG. 02</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00f0ff]" />
+                  <span className="text-[#f1f5f9] font-medium tracking-wider">FIG. 02</span>
                 </span>
                 <span className="tracking-widest">A LITTLE BIT OF ME</span>
               </div>
 
               {/* Wide Picture Frame with Parallax */}
-              <div className="relative aspect-[16/10] sm:aspect-[4/3] overflow-hidden bg-[#141517]">
+              <div className="relative aspect-[16/10] sm:aspect-[4/3] overflow-hidden bg-[#0d1322]">
                 <picture>
                   <source srcSet="/images/sankalp-about-editorial.webp" type="image/webp" />
                   <img
@@ -189,77 +189,77 @@ export const AboutStatement: React.FC = () => {
                   />
                 </picture>
 
-                <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#0c0d0e]/80 via-[#0c0d0e]/20 to-transparent pointer-events-none" />
+                <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#06080f]/80 via-[#06080f]/20 to-transparent pointer-events-none" />
               </div>
 
               {/* Caption */}
-              <div className="flex flex-wrap items-center justify-between gap-2 px-3.5 py-2 bg-[#0c0d0e]/95 border-t border-white/10 font-mono text-[10px] text-[#9da0a8]">
+              <div className="flex flex-wrap items-center justify-between gap-2 px-3.5 py-2 bg-[#06080f]/95 border-t border-white/10 font-mono text-[10px] text-[#94a3b8]">
                 <span className="text-[#eceae5]">{PERSONAL_INFO.name.toUpperCase()}</span>
-                <span className="text-[#e65c24]">OUTDOORS</span>
+                <span className="text-[#00f0ff]">OUTDOORS</span>
               </div>
             </div>
           </div>
 
-          <p className="story-reveal-item font-sans text-xl sm:text-2xl text-[#f4f3ef] font-normal leading-relaxed">
+          <p className="story-reveal-item font-sans text-xl sm:text-2xl text-[#f1f5f9] font-normal leading-relaxed">
             I'm a Computer Science student who enjoys building things, solving problems, and learning by doing. I'm particularly interested in software development, data, machine learning, and generative AI.
           </p>
 
-          <p className="story-reveal-item font-sans text-sm sm:text-base text-[#9da0a8] leading-relaxed">
+          <p className="story-reveal-item font-sans text-sm sm:text-base text-[#94a3b8] leading-relaxed">
             Most of what you'll find here started as an idea, turned into a project, and became another opportunity to learn.
           </p>
 
           {/* Academic Milestone Line */}
-          <div className="story-reveal-item pt-6 border-t border-white/[0.06] flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-xs text-[#9da0a8]">
+          <div className="story-reveal-item pt-6 border-t border-white/[0.06] flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-xs text-[#94a3b8]">
             <div className="flex items-center gap-3">
-              <GraduationCap className="w-4 h-4 text-[#e65c24]" />
-              <span className="text-[#f4f3ef] font-semibold">{PERSONAL_INFO.degree}</span>
+              <GraduationCap className="w-4 h-4 text-[#00f0ff]" />
+              <span className="text-[#f1f5f9] font-semibold">{PERSONAL_INFO.degree}</span>
             </div>
-            <div className="flex items-center gap-4 text-[#9da0a8]">
+            <div className="flex items-center gap-4 text-[#94a3b8]">
               <span>{PERSONAL_INFO.university}</span>
-              <span className="text-[#e65c24] font-medium">CGPA: {PERSONAL_INFO.cgpa}</span>
+              <span className="text-[#00f0ff] font-medium">CGPA: {PERSONAL_INFO.cgpa}</span>
             </div>
           </div>
         </div>
 
         {/* Right Column: How I Approach Projects */}
         <div className="lg:col-span-6 space-y-8 lg:pl-8 lg:border-l lg:border-white/[0.06]">
-          <div className="font-mono text-xs text-[#e65c24] tracking-widest uppercase">
+          <div className="font-mono text-xs text-[#00f0ff] tracking-widest uppercase">
             // HOW I APPROACH PROJECTS
           </div>
 
           <div className="space-y-8">
             <div className="story-reveal-item">
               <div className="flex items-baseline gap-3">
-                <span className="font-mono text-xs text-[#e65c24]">01</span>
-                <h3 className="font-display text-lg font-bold text-[#f4f3ef]">
+                <span className="font-mono text-xs text-[#00f0ff]">01</span>
+                <h3 className="font-display text-lg font-bold text-[#f1f5f9]">
                   START WITH THE PROBLEM
                 </h3>
               </div>
-              <p className="mt-2 text-sm text-[#9da0a8] leading-relaxed pl-6">
+              <p className="mt-2 text-sm text-[#94a3b8] leading-relaxed pl-6">
                 Understand what needs to be solved before worrying about the technology.
               </p>
             </div>
 
             <div className="story-reveal-item">
               <div className="flex items-baseline gap-3">
-                <span className="font-mono text-xs text-[#e65c24]">02</span>
-                <h3 className="font-display text-lg font-bold text-[#f4f3ef]">
+                <span className="font-mono text-xs text-[#00f0ff]">02</span>
+                <h3 className="font-display text-lg font-bold text-[#f1f5f9]">
                   BUILD &amp; EXPERIMENT
                 </h3>
               </div>
-              <p className="mt-2 text-sm text-[#9da0a8] leading-relaxed pl-6">
+              <p className="mt-2 text-sm text-[#94a3b8] leading-relaxed pl-6">
                 Try things, learn from what doesn&apos;t work, and keep improving.
               </p>
             </div>
 
             <div className="story-reveal-item">
               <div className="flex items-baseline gap-3">
-                <span className="font-mono text-xs text-[#e65c24]">03</span>
-                <h3 className="font-display text-lg font-bold text-[#f4f3ef]">
+                <span className="font-mono text-xs text-[#00f0ff]">03</span>
+                <h3 className="font-display text-lg font-bold text-[#f1f5f9]">
                   MAKE IT USEFUL
                 </h3>
               </div>
-              <p className="mt-2 text-sm text-[#9da0a8] leading-relaxed pl-6">
+              <p className="mt-2 text-sm text-[#94a3b8] leading-relaxed pl-6">
                 Focus on building something people can actually use.
               </p>
             </div>

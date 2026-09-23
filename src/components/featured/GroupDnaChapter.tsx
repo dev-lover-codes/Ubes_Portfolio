@@ -31,21 +31,21 @@ export const GroupDnaChapter: React.FC = () => {
   return (
     <article className="py-20 border-b border-white/[0.08] relative">
       {/* Chapter Marker */}
-      <div className="flex items-center justify-between font-mono text-xs text-[#9da0a8] mb-8 pb-4 border-b border-white/[0.06] uppercase tracking-widest">
+      <div className="flex items-center justify-between font-mono text-xs text-[#94a3b8] mb-8 pb-4 border-b border-white/[0.06] uppercase tracking-widest">
         <span className="flex items-center gap-2">
-          <span className="text-[#e65c24]">PROJECT 04</span>
+          <span className="text-[#00f0ff]">PROJECT 04</span>
           <span>// CHAT DATA &amp; BEHAVIOR ANALYSIS</span>
         </span>
-        <span className="text-[#e65c24] font-semibold">{project.year}</span>
+        <span className="text-[#00f0ff] font-semibold">{project.year}</span>
       </div>
 
       {/* Title & Action Links */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12 items-baseline">
         <div className="lg:col-span-8">
-          <h3 className="font-display text-4xl sm:text-7xl md:text-8xl font-black tracking-tighter text-[#f4f3ef] uppercase break-words">
+          <h3 className="font-display text-4xl sm:text-7xl md:text-8xl font-black tracking-tighter text-[#f1f5f9] uppercase break-words">
             {project.title}
           </h3>
-          <p className="font-mono text-sm sm:text-base text-[#e65c24] mt-2 tracking-wider uppercase">
+          <p className="font-mono text-sm sm:text-base text-[#00f0ff] mt-2 tracking-wider uppercase">
             {project.subtitle}
           </p>
         </div>
@@ -56,7 +56,7 @@ export const GroupDnaChapter: React.FC = () => {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-white/20 text-[#f4f3ef] px-5 py-2.5 font-mono text-xs font-semibold hover:border-[#e65c24] hover:text-[#e65c24] transition-colors duration-200"
+              className="inline-flex items-center gap-2 border border-white/20 text-[#f1f5f9] px-5 py-2.5 font-mono text-xs font-semibold hover:border-[#00f0ff] hover:text-[#00f0ff] transition-colors duration-200"
               data-cursor="CODE"
             >
               <span>VIEW REPOSITORY</span>
@@ -74,10 +74,10 @@ export const GroupDnaChapter: React.FC = () => {
       {/* Visual Metaphor: From Raw Conversation to Heatmap & Behavior */}
       <div className="my-12 border-y border-white/[0.08] py-8 space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 font-mono text-xs">
-          <span className="text-[#f4f3ef] font-semibold">
+          <span className="text-[#f1f5f9] font-semibold">
             // HOW IT WORKS: DATA PIPELINE
           </span>
-          <span className="text-[#5e6068]">TRANSFORMATION STAGES</span>
+          <span className="text-[#64748b]">TRANSFORMATION STAGES</span>
         </div>
 
         {/* Transformation Pipeline Tabs */}
@@ -89,12 +89,12 @@ export const GroupDnaChapter: React.FC = () => {
               onClick={() => setActiveStep(idx)}
               className={`p-2.5 sm:p-3.5 text-left transition-all border ${
                 activeStep === idx
-                  ? 'border-[#e65c24] bg-[#111215] text-[#f4f3ef]'
-                  : 'border-white/[0.06] hover:border-white/20 text-[#9da0a8]'
+                  ? 'border-[#00f0ff] bg-[#0b0f19] text-[#f1f5f9]'
+                  : 'border-white/[0.06] hover:border-white/20 text-[#94a3b8]'
               }`}
               data-cursor="STEP"
             >
-              <span className="font-mono text-[10px] text-[#e65c24] block mb-1">
+              <span className="font-mono text-[10px] text-[#00f0ff] block mb-1">
                 0{idx + 1}
               </span>
               <span className="font-display text-xs font-bold block truncate">
@@ -105,13 +105,13 @@ export const GroupDnaChapter: React.FC = () => {
         </div>
 
         {/* Enhanced 7x24 Heatmap Matrix & Behavioral Archetypes Console */}
-        <div className="p-4 sm:p-6 md:p-8 rounded-2xl bg-[#0c0d0e] border border-white/[0.08] space-y-6 shadow-2xl">
+        <div className="p-4 sm:p-6 md:p-8 rounded-2xl bg-[#06080f] border border-white/[0.08] space-y-6 shadow-2xl">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-mono">
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#e65c24] animate-pulse shrink-0" />
-              <span className="text-[#f4f3ef] font-semibold break-words">NUMPY HEATMAP // 7 DAYS × 24 HOURS ACTIVITY PATTERN</span>
+              <span className="w-2 h-2 rounded-full bg-[#00f0ff] animate-pulse shrink-0" />
+              <span className="text-[#f1f5f9] font-semibold break-words">NUMPY HEATMAP // 7 DAYS × 24 HOURS ACTIVITY PATTERN</span>
             </div>
-            <span className="text-[#e65c24] font-semibold break-words">
+            <span className="text-[#00f0ff] font-semibold break-words">
               {hoveredCell
                 ? `${hoveredCell.day} at ${hoveredCell.hour}:00 — DENSITY: ${(hoveredCell.count * 100).toFixed(0)}% (${Math.round(hoveredCell.count * 48)} msgs)`
                 : 'HOVER OVER ANY TIME BLOCK TO SEE ACTIVITY'}
@@ -123,7 +123,7 @@ export const GroupDnaChapter: React.FC = () => {
             <div className="min-w-[420px] space-y-2">
               {days.map((day, dayIdx) => (
                 <div key={day} className="flex items-center gap-3">
-                  <span className="w-8 text-[11px] font-mono text-[#9da0a8] font-semibold shrink-0">
+                  <span className="w-8 text-[11px] font-mono text-[#94a3b8] font-semibold shrink-0">
                     {day}
                   </span>
                   <div className="flex gap-1.5 flex-1">
@@ -135,15 +135,15 @@ export const GroupDnaChapter: React.FC = () => {
                           onMouseEnter={() =>
                             setHoveredCell({ day, hour, count: intensity })
                           }
-                          className="h-6 flex-1 rounded-[2px] transition-all duration-150 cursor-pointer hover:scale-125 hover:z-10 hover:shadow-[0_0_10px_#e65c24]"
+                          className="h-6 flex-1 rounded-[2px] transition-all duration-150 cursor-pointer hover:scale-125 hover:z-10 hover:shadow-[0_0_10px_#00f0ff]"
                           style={{
                             backgroundColor:
                               intensity > 0.7
-                                ? '#e65c24'
+                                ? '#00f0ff'
                                 : intensity > 0.4
-                                ? 'rgba(230, 92, 36, 0.55)'
+                                ? 'rgba(0, 240, 255, 0.55)'
                                 : intensity > 0.15
-                                ? 'rgba(230, 92, 36, 0.22)'
+                                ? 'rgba(0, 240, 255, 0.22)'
                                 : 'rgba(255, 255, 255, 0.05)',
                           }}
                         />
@@ -153,7 +153,7 @@ export const GroupDnaChapter: React.FC = () => {
                 </div>
               ))}
 
-              <div className="flex items-center gap-3 pt-3 border-t border-white/[0.06] text-[10px] font-mono text-[#5e6068]">
+              <div className="flex items-center gap-3 pt-3 border-t border-white/[0.06] text-[10px] font-mono text-[#64748b]">
                 <span className="w-8 shrink-0"></span>
                 <div className="flex justify-between flex-1">
                   <span>00:00</span>
@@ -171,8 +171,8 @@ export const GroupDnaChapter: React.FC = () => {
           {/* Participant Behavioral Archetype Cards */}
           <div className="pt-6 border-t border-white/[0.08] space-y-4">
             <div className="flex items-center justify-between font-mono text-xs">
-              <span className="text-[#5e6068] uppercase">// PARTICIPANT BEHAVIOR ARCHETYPES:</span>
-              <span className="text-[#e65c24]">BASED ON RESPONSE SPEED &amp; ACTIVITY PATTERNS</span>
+              <span className="text-[#64748b] uppercase">// PARTICIPANT BEHAVIOR ARCHETYPES:</span>
+              <span className="text-[#00f0ff]">BASED ON RESPONSE SPEED &amp; ACTIVITY PATTERNS</span>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -182,13 +182,13 @@ export const GroupDnaChapter: React.FC = () => {
                 { title: 'The Anchor', badge: 'HIGH DENSITY', metric: '38 Wds / Msg', desc: 'Highest context length and structural synthesis contributions.' },
                 { title: 'The Weekend Driver', badge: 'PERIODIC PEAK', metric: 'Sat & Sun Peaks', desc: 'Spikes during weekend leisure hours with media attachment ratio 2.4x.' },
               ].map((arch) => (
-                <div key={arch.title} className="p-4 rounded-xl bg-[#111215] border border-white/[0.06] space-y-2 hover:border-[#e65c24]/40 transition-colors">
+                <div key={arch.title} className="p-4 rounded-xl bg-[#0b0f19] border border-white/[0.06] space-y-2 hover:border-[#00f0ff]/40 transition-colors">
                   <div className="flex items-center justify-between font-mono text-[9px]">
-                    <span className="text-[#e65c24] font-semibold">{arch.badge}</span>
-                    <span className="text-[#5e6068]">{arch.metric}</span>
+                    <span className="text-[#00f0ff] font-semibold">{arch.badge}</span>
+                    <span className="text-[#64748b]">{arch.metric}</span>
                   </div>
-                  <h4 className="font-display text-sm font-bold text-[#f4f3ef]">{arch.title}</h4>
-                  <p className="font-sans text-[11px] text-[#9da0a8] leading-relaxed">{arch.desc}</p>
+                  <h4 className="font-display text-sm font-bold text-[#f1f5f9]">{arch.title}</h4>
+                  <p className="font-sans text-[11px] text-[#94a3b8] leading-relaxed">{arch.desc}</p>
                 </div>
               ))}
             </div>
@@ -199,7 +199,7 @@ export const GroupDnaChapter: React.FC = () => {
       {/* Key Implementations & Technologies */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         <div className="lg:col-span-8">
-          <h4 className="font-mono text-xs uppercase tracking-widest text-[#5e6068] mb-4">
+          <h4 className="font-mono text-xs uppercase tracking-widest text-[#64748b] mb-4">
             // KEY FEATURES
           </h4>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -208,7 +208,7 @@ export const GroupDnaChapter: React.FC = () => {
                 key={highlight}
                 className="flex items-start gap-2.5 p-3.5 border border-white/[0.06]"
               >
-                <CheckCircle2 className="w-4 h-4 text-[#e65c24] shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-4 h-4 text-[#00f0ff] shrink-0 mt-0.5" />
                 <span className="text-xs text-[#eceae5] leading-relaxed">
                   {highlight}
                 </span>
@@ -218,14 +218,14 @@ export const GroupDnaChapter: React.FC = () => {
         </div>
 
         <div className="lg:col-span-4">
-          <h4 className="font-mono text-xs uppercase tracking-widest text-[#5e6068] mb-4">
+          <h4 className="font-mono text-xs uppercase tracking-widest text-[#64748b] mb-4">
             // TECHNOLOGIES
           </h4>
           <div className="flex flex-wrap gap-2">
             {project.technologies.map((tech) => (
               <span
                 key={tech}
-                className="px-3 py-1 bg-[#111215] border border-white/[0.08] font-mono text-xs text-[#f4f3ef]"
+                className="px-3 py-1 bg-[#0b0f19] border border-white/[0.08] font-mono text-xs text-[#f1f5f9]"
               >
                 {tech}
               </span>

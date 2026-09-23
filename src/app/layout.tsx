@@ -47,7 +47,7 @@ export default function RootLayout({
       lang="en"
       className={`${syne.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} dark scroll-smooth`}
     >
-      <body className="bg-[#0c0d0e] text-[#f4f3ef] antialiased selection:bg-[#e65c24] selection:text-white">
+      <body className="bg-[#06080f] text-[#f1f5f9] antialiased selection:bg-[#00f0ff] selection:text-white">
         {children}
       </body>
     </html>

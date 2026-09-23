@@ -5,29 +5,29 @@
   --font-sans: var(--font-sans, 'Space Grotesk', sans-serif);
   --font-mono: var(--font-mono, 'JetBrains Mono', monospace);
   
-  --color-charcoal-950: #0c0d0e;
-  --color-charcoal-900: #111215;
-  --color-charcoal-800: #18191e;
-  --color-charcoal-700: #24262d;
-  --color-charcoal-600: #383b44;
+  --color-charcoal-950: #06080f;
+  --color-charcoal-900: #0b0f19;
+  --color-charcoal-800: #111827;
+  --color-charcoal-700: #1e293b;
+  --color-charcoal-600: #334155;
   
-  --color-paper-50: #fbfbf9;
-  --color-paper-100: #f4f3ef;
-  --color-paper-200: #e5e4de;
-  --color-paper-400: #9da0a8;
-  --color-paper-600: #5e6068;
+  --color-paper-50: #f8fafc;
+  --color-paper-100: #f1f5f9;
+  --color-paper-200: #e2e8f0;
+  --color-paper-400: #94a3b8;
+  --color-paper-600: #64748b;
   
-  --color-vermilion-500: #e65c24;
-  --color-vermilion-400: #ff682b;
-  --color-vermilion-600: #c94b17;
+  --color-vermilion-500: #00f0ff;
+  --color-vermilion-400: #38bdf8;
+  --color-vermilion-600: #0284c7;
 }
 
 :root {
-  --bg-primary: #0c0d0e;
-  --bg-secondary: #111215;
-  --text-primary: #f4f3ef;
-  --text-secondary: #9da0a8;
-  --accent: #e65c24;
+  --bg-primary: #06080f;
+  --bg-secondary: #0b0f19;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --accent: #00f0ff;
   color-scheme: dark;
 }
 
@@ -36,8 +36,8 @@
 }
 
 html, body {
-  background-color: #0c0d0e;
-  color: #f4f3ef;
+  background-color: #06080f;
+  color: #f1f5f9;
   font-family: var(--font-sans), 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
   overflow-x: clip;
   margin: 0;
@@ -49,14 +49,14 @@ html, body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0c0d0e;
+  background: #06080f;
 }
 ::-webkit-scrollbar-thumb {
-  background: #24262d;
+  background: #1e293b;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #e65c24;
+  background: #00f0ff;
 }
 
 /* Subtle Film Grain Noise Texture Overlay */
@@ -109,7 +109,7 @@ html.lenis, html.lenis body {
 
 /* Accessible focus states */
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
-  outline: 2px solid #e65c24;
+  outline: 2px solid #00f0ff;
   outline-offset: 3px;
 }
 

@@ -80,7 +80,7 @@ export function PortfolioHome() {
   }, [isIntroOpen])
 
   return (
-    <div className="relative min-h-screen bg-[#0c0d0e] text-[#f4f3ef] selection:bg-[#e65c24] selection:text-white">
+    <div className="relative min-h-screen bg-[#06080f] text-[#f1f5f9] selection:bg-[#00f0ff] selection:text-white">
       {/* Subtle Analog Film Grain Overlay */}
       <div className="grain-overlay" aria-hidden="true" />
 

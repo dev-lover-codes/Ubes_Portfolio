@@ -48,21 +48,21 @@ export const ResonixChapter: React.FC = () => {
   return (
     <article className="py-20 border-b border-white/[0.08] relative">
       {/* Chapter Marker */}
-      <div className="flex items-center justify-between font-mono text-xs text-[#9da0a8] mb-8 pb-4 border-b border-white/[0.06] uppercase tracking-widest">
+      <div className="flex items-center justify-between font-mono text-xs text-[#94a3b8] mb-8 pb-4 border-b border-white/[0.06] uppercase tracking-widest">
         <span className="flex items-center gap-2">
-          <span className="text-[#e65c24]">PROJECT 02</span>
+          <span className="text-[#00f0ff]">PROJECT 02</span>
           <span>// SOCIAL ANALYTICS &amp; NLP</span>
         </span>
-        <span className="text-[#e65c24] font-semibold">{project.timeline || project.year}</span>
+        <span className="text-[#00f0ff] font-semibold">{project.timeline || project.year}</span>
       </div>
 
       {/* Title & Links */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12 items-baseline">
         <div className="lg:col-span-8">
-          <h3 className="font-display text-4xl sm:text-7xl md:text-8xl font-black tracking-tighter text-[#f4f3ef] uppercase break-words">
+          <h3 className="font-display text-4xl sm:text-7xl md:text-8xl font-black tracking-tighter text-[#f1f5f9] uppercase break-words">
             {project.title}
           </h3>
-          <p className="font-mono text-sm sm:text-base text-[#e65c24] mt-2 tracking-wider uppercase">
+          <p className="font-mono text-sm sm:text-base text-[#00f0ff] mt-2 tracking-wider uppercase">
             {project.subtitle}
           </p>
         </div>
@@ -73,7 +73,7 @@ export const ResonixChapter: React.FC = () => {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#f4f3ef] text-[#0c0d0e] px-5 py-2.5 font-mono text-xs font-semibold hover:bg-[#e65c24] hover:text-white transition-colors duration-200"
+              className="inline-flex items-center gap-2 bg-[#f1f5f9] text-[#06080f] px-5 py-2.5 font-mono text-xs font-semibold hover:bg-[#00f0ff] hover:text-white transition-colors duration-200"
               data-cursor="LIVE"
             >
               <span>VIEW LIVE PROJECT</span>
@@ -85,7 +85,7 @@ export const ResonixChapter: React.FC = () => {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-white/20 text-[#f4f3ef] px-5 py-2.5 font-mono text-xs font-semibold hover:border-[#e65c24] hover:text-[#e65c24] transition-colors duration-200"
+              className="inline-flex items-center gap-2 border border-white/20 text-[#f1f5f9] px-5 py-2.5 font-mono text-xs font-semibold hover:border-[#00f0ff] hover:text-[#00f0ff] transition-colors duration-200"
               data-cursor="CODE"
             >
               <span>VIEW SOURCE</span>
@@ -103,8 +103,8 @@ export const ResonixChapter: React.FC = () => {
       {/* Visual Metaphor: Analytical Data Signal Vector */}
       <div className="my-12 border-y border-white/[0.08] py-8 space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 font-mono text-xs">
-          <span className="text-[#f4f3ef] font-semibold">// HOW IT WORKS: ANALYTICAL PIPELINE</span>
-          <span className="text-[#5e6068]">CLICK TO STEP THROUGH PIPELINE</span>
+          <span className="text-[#f1f5f9] font-semibold">// HOW IT WORKS: ANALYTICAL PIPELINE</span>
+          <span className="text-[#64748b]">CLICK TO STEP THROUGH PIPELINE</span>
         </div>
 
         {/* Progression Nodes */}
@@ -116,12 +116,12 @@ export const ResonixChapter: React.FC = () => {
               onClick={() => setActiveSignal(i)}
               className={`p-2.5 sm:p-3.5 text-left transition-all border ${
                 activeSignal === i
-                  ? 'border-[#e65c24] bg-[#111215] text-[#f4f3ef]'
-                  : 'border-white/[0.06] hover:border-white/20 text-[#9da0a8]'
+                  ? 'border-[#00f0ff] bg-[#0b0f19] text-[#f1f5f9]'
+                  : 'border-white/[0.06] hover:border-white/20 text-[#94a3b8]'
               }`}
               data-cursor="SIGNAL"
             >
-              <span className="font-mono text-[10px] text-[#e65c24] block mb-1">
+              <span className="font-mono text-[10px] text-[#00f0ff] block mb-1">
                 SIGNAL 0{i + 1}
               </span>
               <span className="font-display text-xs font-bold block truncate">
@@ -132,23 +132,23 @@ export const ResonixChapter: React.FC = () => {
         </div>
 
         {/* Minimal Linguistic Wave Graphic */}
-        <div className="p-4 sm:p-6 bg-[#111215] border border-white/[0.06] space-y-4">
-          <div className="flex justify-between items-center text-xs font-mono text-[#9da0a8]">
-            <span className="text-[#e65c24] font-semibold">
+        <div className="p-4 sm:p-6 bg-[#0b0f19] border border-white/[0.06] space-y-4">
+          <div className="flex justify-between items-center text-xs font-mono text-[#94a3b8]">
+            <span className="text-[#00f0ff] font-semibold">
               ACTIVE STAGE: {signalFlow[activeSignal].label}
             </span>
-            <span className="text-[#5e6068]">NLP: TEXTBLOB + SPACY · TESTING: SCIPY</span>
+            <span className="text-[#64748b]">NLP: TEXTBLOB + SPACY · TESTING: SCIPY</span>
           </div>
 
           <svg className="w-full h-12" viewBox="0 0 800 60" fill="none">
             <path
               d="M0 30 Q 100 5, 200 30 T 400 30 T 600 15 T 800 30"
-              stroke="#e65c24"
+              stroke="#00f0ff"
               strokeWidth="2"
             />
             <path
               d="M0 30 Q 100 15, 200 30 T 400 30 T 600 25 T 800 30"
-              stroke="#f4f3ef"
+              stroke="#f1f5f9"
               strokeOpacity="0.2"
               strokeWidth="1.5"
             />
@@ -161,15 +161,15 @@ export const ResonixChapter: React.FC = () => {
       </div>
 
       {/* Interactive Dual-NLP & Viral Velocity Console */}
-      <div className="my-12 rounded-2xl border border-white/[0.08] bg-[#0c0d0e] overflow-hidden shadow-2xl">
+      <div className="my-12 rounded-2xl border border-white/[0.08] bg-[#06080f] overflow-hidden shadow-2xl">
         {/* Terminal Header */}
-        <div className="px-4 py-3 sm:px-6 sm:py-4 bg-[#111215] border-b border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-3">
-          <div className="flex items-center gap-2 font-mono text-xs text-[#f4f3ef] flex-wrap">
-            <span className="w-2 h-2 rounded-full bg-[#e65c24] animate-pulse shrink-0" />
+        <div className="px-4 py-3 sm:px-6 sm:py-4 bg-[#0b0f19] border-b border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-3">
+          <div className="flex items-center gap-2 font-mono text-xs text-[#f1f5f9] flex-wrap">
+            <span className="w-2 h-2 rounded-full bg-[#00f0ff] animate-pulse shrink-0" />
             <span className="font-semibold break-words">RESONIX // INTERACTIVE CONTENT ANALYZER</span>
           </div>
 
-          <div className="font-mono text-[11px] text-[#5e6068]">
+          <div className="font-mono text-[11px] text-[#64748b]">
             SPACY · TEXTBLOB · SCIPY STATS
           </div>
         </div>
@@ -178,8 +178,8 @@ export const ResonixChapter: React.FC = () => {
           {/* Strategy Selector */}
           <div className="space-y-3">
             <div className="flex items-center justify-between font-mono text-xs">
-              <span className="text-[#5e6068] uppercase">// SELECT A CONTENT FORMAT TO COMPARE:</span>
-              <span className="text-[#e65c24] font-semibold">{hookStrategies[selectedHookIdx].name}</span>
+              <span className="text-[#64748b] uppercase">// SELECT A CONTENT FORMAT TO COMPARE:</span>
+              <span className="text-[#00f0ff] font-semibold">{hookStrategies[selectedHookIdx].name}</span>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -190,34 +190,34 @@ export const ResonixChapter: React.FC = () => {
                   onClick={() => setSelectedHookIdx(idx)}
                   className={`p-4 rounded-xl border text-left transition-all ${
                     selectedHookIdx === idx
-                      ? 'border-[#e65c24] bg-[#16171a] shadow-[0_0_20px_rgba(230,92,36,0.15)] text-[#f4f3ef]'
-                      : 'border-white/[0.08] bg-[#111215]/60 hover:border-white/20 text-[#9da0a8]'
+                      ? 'border-[#00f0ff] bg-[#16171a] shadow-[0_0_20px_rgba(0,240,255,0.15)] text-[#f1f5f9]'
+                      : 'border-white/[0.08] bg-[#0b0f19]/60 hover:border-white/20 text-[#94a3b8]'
                   }`}
                   data-cursor="SELECT"
                 >
-                  <div className="font-mono text-[10px] text-[#e65c24] mb-1">STRATEGY 0{idx + 1}</div>
+                  <div className="font-mono text-[10px] text-[#00f0ff] mb-1">STRATEGY 0{idx + 1}</div>
                   <div className="font-display font-bold text-sm mb-1">{strat.name}</div>
-                  <div className="font-mono text-xs text-[#9da0a8]">Velocity: <span className="text-[#f4f3ef] font-semibold">{strat.velocityMultiplier}x</span></div>
+                  <div className="font-mono text-xs text-[#94a3b8]">Velocity: <span className="text-[#f1f5f9] font-semibold">{strat.velocityMultiplier}x</span></div>
                 </button>
               ))}
             </div>
           </div>
 
           {/* Dials & NLP Gauges */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 rounded-xl bg-[#111215]/80 border border-white/[0.06]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 rounded-xl bg-[#0b0f19]/80 border border-white/[0.06]">
             {/* Polarity Gauge */}
             <div className="space-y-2">
               <div className="flex justify-between font-mono text-xs">
-                <span className="text-[#9da0a8]">TEXTBLOB POLARITY</span>
-                <span className="text-[#e65c24] font-bold">{hookStrategies[selectedHookIdx].polarity > 0 ? `+${hookStrategies[selectedHookIdx].polarity}` : hookStrategies[selectedHookIdx].polarity}</span>
+                <span className="text-[#94a3b8]">TEXTBLOB POLARITY</span>
+                <span className="text-[#00f0ff] font-bold">{hookStrategies[selectedHookIdx].polarity > 0 ? `+${hookStrategies[selectedHookIdx].polarity}` : hookStrategies[selectedHookIdx].polarity}</span>
               </div>
               <div className="h-2 w-full bg-white/[0.06] rounded-full overflow-hidden relative">
                 <div
-                  className="h-full bg-gradient-to-r from-blue-500 via-[#e65c24] to-emerald-400 transition-all duration-300"
+                  className="h-full bg-gradient-to-r from-blue-500 via-[#00f0ff] to-emerald-400 transition-all duration-300"
                   style={{ width: `${((hookStrategies[selectedHookIdx].polarity + 1) / 2) * 100}%` }}
                 />
               </div>
-              <div className="flex justify-between text-[10px] font-mono text-[#5e6068]">
+              <div className="flex justify-between text-[10px] font-mono text-[#64748b]">
                 <span>-1.0 (Critical)</span>
                 <span>0.0 (Neutral)</span>
                 <span>+1.0 (Positive)</span>
@@ -227,16 +227,16 @@ export const ResonixChapter: React.FC = () => {
             {/* Subjectivity Gauge */}
             <div className="space-y-2">
               <div className="flex justify-between font-mono text-xs">
-                <span className="text-[#9da0a8]">SUBJECTIVITY RATIO</span>
-                <span className="text-[#f4f3ef] font-bold">{hookStrategies[selectedHookIdx].subjectivity}</span>
+                <span className="text-[#94a3b8]">SUBJECTIVITY RATIO</span>
+                <span className="text-[#f1f5f9] font-bold">{hookStrategies[selectedHookIdx].subjectivity}</span>
               </div>
               <div className="h-2 w-full bg-white/[0.06] rounded-full overflow-hidden relative">
                 <div
-                  className="h-full bg-[#e65c24] transition-all duration-300"
+                  className="h-full bg-[#00f0ff] transition-all duration-300"
                   style={{ width: `${hookStrategies[selectedHookIdx].subjectivity * 100}%` }}
                 />
               </div>
-              <div className="flex justify-between text-[10px] font-mono text-[#5e6068]">
+              <div className="flex justify-between text-[10px] font-mono text-[#64748b]">
                 <span>0.0 (Objective)</span>
                 <span>1.0 (Opinion-driven)</span>
               </div>
@@ -244,10 +244,10 @@ export const ResonixChapter: React.FC = () => {
           </div>
 
           {/* SciPy A/B Statistical Verification Result */}
-          <div className="p-4 sm:p-5 rounded-xl border border-[#e65c24]/30 bg-[#e65c24]/5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-xs">
+          <div className="p-4 sm:p-5 rounded-xl border border-[#00f0ff]/30 bg-[#00f0ff]/5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-xs">
             <div className="space-y-1">
-              <div className="flex items-center gap-2 text-[#e65c24] font-bold flex-wrap">
-                <span className="w-2 h-2 rounded-full bg-[#e65c24] shrink-0" />
+              <div className="flex items-center gap-2 text-[#00f0ff] font-bold flex-wrap">
+                <span className="w-2 h-2 rounded-full bg-[#00f0ff] shrink-0" />
                 <span className="break-words">STATISTICAL HYPOTHESIS CONFIRMED // p = {hookStrategies[selectedHookIdx].pValue} (&lt; 0.05)</span>
               </div>
               <p className="text-[#eceae5] font-sans text-xs">
@@ -256,8 +256,8 @@ export const ResonixChapter: React.FC = () => {
             </div>
 
             <div className="text-left sm:text-right shrink-0">
-              <span className="text-[10px] text-[#5e6068] block">ESTIMATED UPLIFT</span>
-              <span className="text-xl font-display font-black text-[#e65c24]">
+              <span className="text-[10px] text-[#64748b] block">ESTIMATED UPLIFT</span>
+              <span className="text-xl font-display font-black text-[#00f0ff]">
                 +{hookStrategies[selectedHookIdx].uplift}%
               </span>
             </div>
@@ -268,7 +268,7 @@ export const ResonixChapter: React.FC = () => {
       {/* Key Implementations & Technologies */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         <div className="lg:col-span-8">
-          <h4 className="font-mono text-xs uppercase tracking-widest text-[#5e6068] mb-4">
+          <h4 className="font-mono text-xs uppercase tracking-widest text-[#64748b] mb-4">
             // KEY FEATURES
           </h4>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -277,7 +277,7 @@ export const ResonixChapter: React.FC = () => {
                 key={highlight}
                 className="flex items-start gap-2.5 p-3.5 border border-white/[0.06]"
               >
-                <CheckCircle2 className="w-4 h-4 text-[#e65c24] shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-4 h-4 text-[#00f0ff] shrink-0 mt-0.5" />
                 <span className="text-xs text-[#eceae5] leading-relaxed">
                   {highlight}
                 </span>
@@ -287,14 +287,14 @@ export const ResonixChapter: React.FC = () => {
         </div>
 
         <div className="lg:col-span-4">
-          <h4 className="font-mono text-xs uppercase tracking-widest text-[#5e6068] mb-4">
+          <h4 className="font-mono text-xs uppercase tracking-widest text-[#64748b] mb-4">
             // TECHNOLOGIES
           </h4>
           <div className="flex flex-wrap gap-2">
             {project.technologies.map((tech) => (
               <span
                 key={tech}
-                className="px-3 py-1 bg-[#111215] border border-white/[0.08] font-mono text-xs text-[#f4f3ef]"
+                className="px-3 py-1 bg-[#0b0f19] border border-white/[0.08] font-mono text-xs text-[#f1f5f9]"
               >
                 {tech}
               </span>
@@ -304,10 +304,10 @@ export const ResonixChapter: React.FC = () => {
       </div>
 
       {/* Continuous Transition Connector */}
-      <div className="mt-16 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs font-mono text-[#5e6068] text-center">
+      <div className="mt-16 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs font-mono text-[#64748b] text-center">
         <div className="h-[1px] w-8 sm:w-12 bg-white/10 hidden min-[400px]:block" />
         <span>NEXT: HOTEL BOOKING PREDICTION</span>
-        <ArrowDown className="w-3.5 h-3.5 text-[#e65c24]" />
+        <ArrowDown className="w-3.5 h-3.5 text-[#00f0ff]" />
         <div className="h-[1px] w-8 sm:w-12 bg-white/10 hidden min-[400px]:block" />
       </div>
     </article>
