@@ -72,10 +72,18 @@ The portfolio is structured around a centralized data file (`src/data/portfolioD
 ## 4. GitHub Repository Publishing
 - Remote URL: `https://github.com/dev-lover-codes/Ubes_Portfolio.git`
 - Target Branch: `main`
-- Actions:
+- Actions Completed:
   1. Set remote `origin` to `https://github.com/dev-lover-codes/Ubes_Portfolio.git`.
-  2. Stage all project files, assets, components, and configuration.
-  3. Create commit with complete portfolio codebase.
-  4. Ensure current branch is `main`.
-  5. Push upstream to `origin/main`.
+  2. Staged all project files, assets, components, and configuration.
+  3. Created commit with complete portfolio codebase (`feat: initial commit of Ubes Portfolio codebase`).
+  4. Pushed upstream to `origin/main`.
+
+---
+
+## 5. Vercel Deployment
+- Goals:
+  1. Install Vercel CLI (`npm i -g vercel` / `npx vercel`).
+  2. Authenticate / Login to Vercel account.
+  3. Deploy the project using `vercel` / `vercel --prod`.
+
 
